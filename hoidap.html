@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hỏi đáp - VPDK Đất đai Thanh Hóa</title>
+  <meta name="description" content="Hỏi đáp về thủ tục và nghiệp vụ đất đai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+
+  <header class="site-header">
+    <div class="container header-brand">
+      <div class="brand-mark" aria-hidden="true">VN</div>
+      <div class="brand-text">
+        <p class="brand-overline">TRANG THÔNG TIN ĐIỆN TỬ</p>
+        <h1 class="brand-title">VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI THANH HÓA</h1>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">Menu</button>
+    </div>
+    <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <div class="container nav-inner">
+        <a href="index.html">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Tin tức sự kiện</a>
+        <a href="#">Văn bản</a>
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a href="#">Công khai KQ giải quyết TTHC</a>
+        <a href="#">Hòm thư nóng</a>
+        <a href="lienhe.html">Liên hệ</a>
+        <a class="is-active" href="hoidap.html">Hỏi đáp</a>
+      </div>
+    </nav>
+    <button class="nav-backdrop" type="button" aria-label="Đóng menu"></button>
+  </header>
+
+  <div class="mobile-quick-actions" aria-label="Truy cập nhanh">
+    <a href="tthc.html">TTHC</a>
+    <a href="#">Công khai</a>
+    <a href="hoidap.html">Hỏi đáp</a>
+  </div>
+
+  <main id="main-content" class="container page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a> / <span aria-current="page">Hỏi đáp</span>
+    </nav>
+
+    <header class="page-head">
+      <h2>Hỏi đáp trực tuyến</h2>
+      <p>Tra cứu câu hỏi đã trả lời và lọc theo lĩnh vực.</p>
+    </header>
+
+    <section class="filter-panel card">
+      <form id="qa-filter-form">
+        <div class="filter-grid">
+          <label>
+            Lĩnh vực
+            <select name="field">
+              <option value="">Tất cả</option>
+              <option value="hoso">Hồ sơ cấp giấy</option>
+              <option value="chuyennhuong">Chuyển nhượng</option>
+              <option value="thechap">Thế chấp</option>
+            </select>
+          </label>
+          <label>
+            Trạng thái
+            <select name="status">
+              <option value="">Tất cả</option>
+              <option value="answered">Đã trả lời</option>
+              <option value="pending">Chờ trả lời</option>
+            </select>
+          </label>
+          <label>
+            Từ khóa
+            <input type="search" name="keyword" placeholder="Nhập nội dung câu hỏi...">
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <section class="stack section" aria-label="Danh sách hỏi đáp">
+      <article class="qa-card card" data-status="answered">
+        <h3>Hồ sơ cấp đổi giấy chứng nhận bị thiếu tờ khai, cần bổ sung thế nào?</h3>
+        <p class="meta">Lĩnh vực: Hồ sơ cấp giấy · 08/03/2026</p>
+        <p><strong>Trả lời:</strong> Người dân bổ sung tờ khai theo mẫu 04/ĐK tại bộ phận một cửa hoặc nộp trực tuyến trên cổng dịch vụ công.</p>
+      </article>
+      <article class="qa-card card" data-status="answered">
+        <h3>Thời hạn giải quyết hồ sơ đăng ký biến động sau chuyển nhượng là bao lâu?</h3>
+        <p class="meta">Lĩnh vực: Chuyển nhượng · 06/03/2026</p>
+        <p><strong>Trả lời:</strong> Thời hạn xử lý theo quy định hiện hành là 10 ngày làm việc, không bao gồm thời gian bổ sung hồ sơ.</p>
+      </article>
+      <article class="qa-card card" data-status="pending">
+        <h3>Tôi muốn xóa thế chấp sổ đỏ đã tất toán ngân hàng thì cần giấy tờ gì?</h3>
+        <p class="meta">Lĩnh vực: Thế chấp · 05/03/2026</p>
+        <p><strong>Trạng thái:</strong> Đang chuyển chuyên viên phụ trách trả lời.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Văn phòng Đăng ký đất đai Thanh Hóa</h2>
+        <p>Địa chỉ: Số 01, Đại lộ Lê Lợi, TP. Thanh Hóa</p>
+      </div>
+      <div class="footer-links">
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a href="hoidap.html">Hỏi đáp</a>
+        <a href="lienhe.html">Liên hệ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
