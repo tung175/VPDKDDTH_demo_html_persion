@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hòm thư nóng - VPDK Đất đai Thanh Hóa</title>
   <meta name="description" content="Tiếp nhận phản ánh, kiến nghị qua hòm thư nóng.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
   <header class="site-header">
     <div class="container header-brand">
-      <div class="brand-mark" aria-hidden="true">VN</div>
+      <img class="brand-logo" src="assets/quoc-huy-961881.png" alt="Quốc huy Việt Nam">
       <div class="brand-text">
         <p class="brand-overline">TRANG THÔNG TIN ĐIỆN TỬ</p>
         <h1 class="brand-title">VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI THANH HÓA</h1>
@@ -93,12 +90,27 @@
 
         <article class="card section-card">
           <h3>Quy trình xử lý phản ánh</h3>
-          <ol class="process-list">
-            <li>Tiếp nhận phản ánh và cấp mã ticket.</li>
-            <li>Phân loại nội dung, chuyển đơn vị xử lý.</li>
-            <li>Thẩm tra, phản hồi bước đầu theo SLA.</li>
-            <li>Kiểm duyệt nội dung phản hồi trước khi công khai.</li>
-            <li>Công khai trạng thái xử lý và đóng ticket.</li>
+          <ol class="process-stepper" aria-label="Quy trình xử lý phản ánh">
+            <li class="is-done">
+              <h4>Tiếp nhận</h4>
+              <p>Tiếp nhận phản ánh và cấp mã ticket.</p>
+            </li>
+            <li class="is-current">
+              <h4>Phân loại</h4>
+              <p>Phân loại nội dung, chuyển đơn vị xử lý.</p>
+            </li>
+            <li class="is-waiting">
+              <h4>Thẩm tra</h4>
+              <p>Thẩm tra, phản hồi bước đầu theo SLA.</p>
+            </li>
+            <li class="is-waiting">
+              <h4>Kiểm duyệt</h4>
+              <p>Kiểm duyệt nội dung phản hồi trước khi công khai.</p>
+            </li>
+            <li class="is-waiting">
+              <h4>Công khai</h4>
+              <p>Công khai trạng thái xử lý và đóng ticket.</p>
+            </li>
           </ol>
         </article>
 
@@ -144,10 +156,25 @@
       <aside class="content-rail stack">
         <article class="card panel-card">
           <h3 class="panel-title">Đầu mối tiếp nhận nhanh</h3>
-          <ul class="compact-list">
-            <li>Điện thoại: <a href="tel:02373700000">0237 370 0000</a></li>
-            <li>Email: <a href="mailto:vpdkdd@thanhhoa.gov.vn">vpdkdd@thanhhoa.gov.vn</a></li>
-            <li>Giờ làm việc: 07:30-11:30, 13:30-17:00</li>
+          <ul class="compact-list contact-list">
+            <li>
+              <div class="contact-pair">
+                <span class="contact-label">Điện thoại:</span>
+                <a class="contact-value contact-phone" href="tel:02373700000">0237 370 0000</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-pair">
+                <span class="contact-label">Email:</span>
+                <a class="contact-value contact-email" href="mailto:vpdkdd@thanhhoa.gov.vn">vpdkdd@thanhhoa.gov.vn</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-pair">
+                <span class="contact-label">Giờ làm việc:</span>
+                <span class="contact-value">07:30-11:30, 13:30-17:00</span>
+              </div>
+            </li>
           </ul>
         </article>
         <article class="card panel-card">
@@ -178,3 +205,4 @@
   <script src="assets/js/app.js" defer></script>
 </body>
 </html>
+

@@ -104,6 +104,19 @@ flowchart TD
 | Hòm thư nóng | Liên kết/khối thông tin rời rạc | Thiếu quy trình và theo dõi trạng thái rõ | Form chuẩn + quy trình xử lý + bảng trạng thái ticket | Tăng niềm tin, dễ theo dõi tiến độ phản ánh |
 | Công khai KQ TTHC | Danh sách công khai cũ ít lọc | Khó tìm mã hồ sơ, khó quét trạng thái | Bảng công khai có filter mã/nhóm/trạng thái/thời gian | Tìm kết quả nhanh, tăng minh bạch |
 
+### 4.1 Cập nhật mới cho module Giới thiệu (đồng bộ triển khai)
+- `#co-cau` đã chuyển từ danh sách bullet sang sơ đồ tổ chức top-down bằng HTML/CSS:
+  - Tầng 1: Giám đốc Văn phòng.
+  - Tầng 2: 2 Phó Giám đốc theo nhóm phụ trách.
+  - Tầng 3: 4 đơn vị chuyên môn/chi nhánh.
+- `#chuc-nang` đã chuyển từ danh sách dài sang `capability cards` 2x2:
+  - Mỗi card gồm tiêu đề nhiệm vụ, mô tả ngắn, và 2 đầu ra thực hiện.
+- Chuẩn responsive:
+  - Desktop: sơ đồ 3 tầng + capability 2 cột.
+  - Tablet: giữ khả năng quét nhanh theo cụm.
+  - Mobile: chuyển stack dọc, ưu tiên dễ đọc và không tràn ngang.
+- Không thay đổi API/backend; chỉ thay đổi lớp trình bày và class front-end (`org-chart`, `org-level`, `org-node`, `capability-grid`, `capability-card`).
+
 ---
 
 ## 5. Data contracts/type map cho FE/BE
@@ -284,4 +297,3 @@ flowchart LR
 - [ ] Mapping cũ/mới hoàn thiện và được nghiệp vụ xác nhận.
 - [ ] Contract dữ liệu được thống nhất giữa FE/BE.
 - [ ] Test responsive/a11y đạt tiêu chí.
-
