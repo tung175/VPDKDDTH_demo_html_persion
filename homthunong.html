@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hòm thư nóng - VPDK Đất đai Thanh Hóa</title>
+  <meta name="description" content="Tiếp nhận phản ánh, kiến nghị qua hòm thư nóng.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+  <header class="site-header">
+    <div class="container header-brand">
+      <div class="brand-mark" aria-hidden="true">VN</div>
+      <div class="brand-text">
+        <p class="brand-overline">TRANG THÔNG TIN ĐIỆN TỬ</p>
+        <h1 class="brand-title">VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI THANH HÓA</h1>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">Menu</button>
+    </div>
+    <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <div class="container nav-inner">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="tintuc.html">Tin tức sự kiện</a>
+        <a href="vanban.html">Văn bản</a>
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a href="congkhai-kq.html">Công khai KQ giải quyết TTHC</a>
+        <a class="is-active" href="homthunong.html">Hòm thư nóng</a>
+        <a href="lienhe.html">Liên hệ</a>
+        <a href="hoidap.html">Hỏi đáp</a>
+      </div>
+    </nav>
+    <button class="nav-backdrop" type="button" aria-label="Đóng menu"></button>
+  </header>
+
+  <div class="mobile-quick-actions" aria-label="Truy cập nhanh">
+    <a href="tthc.html">TTHC</a>
+    <a href="congkhai-kq.html">Công khai</a>
+    <a href="hoidap.html">Hỏi đáp</a>
+  </div>
+
+  <main id="main-content" class="container page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a> / <span aria-current="page">Hòm thư nóng</span>
+    </nav>
+
+    <header class="page-head">
+      <h2>Hòm thư nóng - tiếp nhận phản ánh, kiến nghị</h2>
+      <p>Tiếp nhận thông tin phản ánh về quy trình, thái độ phục vụ hoặc khó khăn phát sinh trong quá trình thực hiện thủ tục hành chính.</p>
+    </header>
+
+    <section class="content-layout two-col">
+      <div class="content-main stack">
+        <article class="card section-card">
+          <h3>Gửi phản ánh</h3>
+          <form class="form-grid">
+            <label>
+              Họ và tên
+              <input type="text" placeholder="Nguyễn Văn A" required>
+            </label>
+            <label>
+              Số điện thoại
+              <input type="tel" placeholder="09xx xxx xxx" required>
+            </label>
+            <label>
+              Email
+              <input type="email" placeholder="email@example.com">
+            </label>
+            <label>
+              Nhóm nội dung phản ánh
+              <select>
+                <option>Thái độ phục vụ</option>
+                <option>Quy trình xử lý hồ sơ</option>
+                <option>Kỹ thuật hệ thống trực tuyến</option>
+                <option>Khác</option>
+              </select>
+            </label>
+            <label>
+              Nội dung phản ánh
+              <textarea rows="5" placeholder="Nhập nội dung chi tiết..." required></textarea>
+            </label>
+            <div class="action-row">
+              <button type="submit" class="btn btn-primary">Gửi phản ánh</button>
+              <button type="reset" class="btn btn-secondary">Làm lại</button>
+            </div>
+            <p class="meta">Sau khi gửi thành công, hệ thống cấp mã ticket để theo dõi tiến độ xử lý công khai.</p>
+          </form>
+        </article>
+
+        <article class="card section-card">
+          <h3>Quy trình xử lý phản ánh</h3>
+          <ol class="process-list">
+            <li>Tiếp nhận phản ánh và cấp mã ticket.</li>
+            <li>Phân loại nội dung, chuyển đơn vị xử lý.</li>
+            <li>Thẩm tra, phản hồi bước đầu theo SLA.</li>
+            <li>Kiểm duyệt nội dung phản hồi trước khi công khai.</li>
+            <li>Công khai trạng thái xử lý và đóng ticket.</li>
+          </ol>
+        </article>
+
+        <article class="card section-card">
+          <div class="section-head">
+            <h3>Trạng thái xử lý công khai</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã ticket</th>
+                  <th>Chủ đề</th>
+                  <th>Ngày tiếp nhận</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody id="hotline-status-body">
+                <tr class="hotline-row" data-status="in_progress">
+                  <td>HTN-2026-0015</td>
+                  <td>Phản ánh chậm trả kết quả hồ sơ biến động</td>
+                  <td>09/03/2026</td>
+                  <td><span class="badge badge-warning">Đang xử lý</span></td>
+                </tr>
+                <tr class="hotline-row" data-status="closed">
+                  <td>HTN-2026-0013</td>
+                  <td>Đề nghị hỗ trợ tra cứu hồ sơ trực tuyến</td>
+                  <td>07/03/2026</td>
+                  <td><span class="badge badge-success">Đã phản hồi</span></td>
+                </tr>
+                <tr class="hotline-row" data-status="new">
+                  <td>HTN-2026-0016</td>
+                  <td>Góp ý cải thiện giao diện tra cứu công khai kết quả</td>
+                  <td>10/03/2026</td>
+                  <td><span class="badge badge-info">Mới tiếp nhận</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+
+      <aside class="content-rail stack">
+        <article class="card panel-card">
+          <h3 class="panel-title">Đầu mối tiếp nhận nhanh</h3>
+          <ul class="compact-list">
+            <li>Điện thoại: <a href="tel:02373700000">0237 370 0000</a></li>
+            <li>Email: <a href="mailto:vpdkdd@thanhhoa.gov.vn">vpdkdd@thanhhoa.gov.vn</a></li>
+            <li>Giờ làm việc: 07:30-11:30, 13:30-17:00</li>
+          </ul>
+        </article>
+        <article class="card panel-card">
+          <h3 class="panel-title">Cam kết SLA</h3>
+          <ul class="compact-list">
+            <li>Phản hồi bước đầu trong 24 giờ làm việc.</li>
+            <li>Xử lý và cập nhật trạng thái theo tiến độ thực tế.</li>
+            <li>Công khai kết quả xử lý ở mức phù hợp quy định.</li>
+          </ul>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Văn phòng Đăng ký đất đai Thanh Hóa</h2>
+        <p>Địa chỉ: Số 01, Đại lộ Lê Lợi, TP. Thanh Hóa</p>
+      </div>
+      <div class="footer-links">
+        <a href="homthunong.html">Hòm thư nóng</a>
+        <a href="hoidap.html">Hỏi đáp</a>
+        <a href="lienhe.html">Liên hệ</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

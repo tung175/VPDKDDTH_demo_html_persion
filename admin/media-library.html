@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Portal - Media Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="role-super_admin">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand"><strong>Admin Portal</strong><span>VPDKĐĐ Thanh Hóa</span></div>
+      <div class="nav-group">
+        <h3>MVP nội dung</h3>
+        <a class="nav-link" href="index.html"><span>Dashboard</span></a>
+        <a class="nav-link" href="homepage-manager.html"><span>Trang chủ</span></a>
+        <a class="nav-link" href="news-list.html"><span>Tin tức/Sự kiện</span></a>
+        <a class="nav-link" href="news-editor.html"><span>Soạn thảo bài</span></a>
+        <a class="nav-link active" href="media-library.html"><span>Media</span></a>
+        <a class="nav-link" href="approval-queue.html"><span>Duyệt nội dung</span></a>
+        <a class="nav-link" href="workflow-history.html"><span>Workflow history</span></a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left"><input type="search" placeholder="Tìm media theo tên file, alt text..."></div>
+        <div class="topbar-right">
+          <label class="chip" for="role-switcher">Vai trò</label>
+          <select id="role-switcher">
+            <option value="super_admin">Super Admin</option>
+            <option value="bien_tap_vien">Biên tập viên</option>
+            <option value="kiem_duyet_vien">Kiểm duyệt viên</option>
+            <option value="chuyen_vien">Chuyên viên nghiệp vụ</option>
+          </select>
+        </div>
+      </header>
+
+      <section class="page">
+        <div class="page-head">
+          <div>
+            <h1>Media Library</h1>
+            <p class="sub">Upload, phân loại, chỉnh alt text, gắn banner/video và tái sử dụng tài nguyên.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary">Upload media</button>
+            <button class="btn secondary">Tạo thư mục</button>
+          </div>
+        </div>
+
+        <article class="card">
+          <div class="filter-bar">
+            <select><option>Loại: tất cả</option><option>image</option><option>video</option></select>
+            <select><option>Thư mục: trang chủ</option><option>tin tức</option><option>banner</option></select>
+            <select><option>Trạng thái tối ưu: tất cả</option><option>đạt</option><option>chưa đạt</option></select>
+            <button class="btn secondary">Lọc</button>
+          </div>
+        </article>
+
+        <div class="grid-3">
+          <article class="card">
+            <strong>tin-2026-03-09.webp</strong>
+            <ul class="list">
+              <li>alt text: Lãnh đạo phát biểu tại hội nghị</li>
+              <li>kích thước: 1280x720</li>
+              <li>dung lượng: 320KB</li>
+              <li>used_by: 3 bài viết</li>
+            </ul>
+            <div class="actions">
+              <button class="btn secondary">Chọn</button>
+              <button class="btn secondary">Sửa alt</button>
+              <button class="btn danger">Xóa</button>
+            </div>
+          </article>
+          <article class="card">
+            <strong>banner-tthc-q2.webp</strong>
+            <ul class="list">
+              <li>alt text: Banner cải cách TTHC</li>
+              <li>kích thước: 1600x600</li>
+              <li>dung lượng: 410KB</li>
+              <li>used_by: homepage-hero</li>
+            </ul>
+            <div class="actions">
+              <button class="btn secondary">Gắn vị trí</button>
+              <button class="btn secondary">Lịch hiển thị</button>
+            </div>
+          </article>
+          <article class="card">
+            <strong>video-huong-dan-dvc.mp4</strong>
+            <ul class="list">
+              <li>thumbnail: có</li>
+              <li>duration: 03:21</li>
+              <li>nguồn: internal upload</li>
+              <li>metadata: đủ</li>
+            </ul>
+            <div class="actions">
+              <button class="btn secondary">Chỉnh metadata</button>
+              <button class="btn secondary">Sao chép link</button>
+            </div>
+          </article>
+        </div>
+
+        <article class="card">
+          <h2>MediaPicker component preview</h2>
+          <div class="wireframe">[MediaPicker Drawer]
+- Tabs: image | video | banner
+- Filter: folder, format, size
+- Search: filename, alt text
+- Preview + metadata + used_by
+- Actions: Select, Replace, Crop, Optimize
+- Event audit: action=media_selected | media_updated</div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>

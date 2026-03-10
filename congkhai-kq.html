@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Công khai KQ giải quyết TTHC - VPDK Đất đai Thanh Hóa</title>
+  <meta name="description" content="Công khai kết quả giải quyết thủ tục hành chính lĩnh vực đất đai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+  <header class="site-header">
+    <div class="container header-brand">
+      <div class="brand-mark" aria-hidden="true">VN</div>
+      <div class="brand-text">
+        <p class="brand-overline">TRANG THÔNG TIN ĐIỆN TỬ</p>
+        <h1 class="brand-title">VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI THANH HÓA</h1>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">Menu</button>
+    </div>
+    <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <div class="container nav-inner">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="tintuc.html">Tin tức sự kiện</a>
+        <a href="vanban.html">Văn bản</a>
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a class="is-active" href="congkhai-kq.html">Công khai KQ giải quyết TTHC</a>
+        <a href="homthunong.html">Hòm thư nóng</a>
+        <a href="lienhe.html">Liên hệ</a>
+        <a href="hoidap.html">Hỏi đáp</a>
+      </div>
+    </nav>
+    <button class="nav-backdrop" type="button" aria-label="Đóng menu"></button>
+  </header>
+
+  <div class="mobile-quick-actions" aria-label="Truy cập nhanh">
+    <a href="tthc.html">TTHC</a>
+    <a href="congkhai-kq.html">Công khai</a>
+    <a href="hoidap.html">Hỏi đáp</a>
+  </div>
+
+  <main id="main-content" class="container page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a> / <span aria-current="page">Công khai KQ giải quyết TTHC</span>
+    </nav>
+
+    <header class="page-head">
+      <h2>Công khai kết quả giải quyết thủ tục hành chính</h2>
+      <p>Tra cứu hồ sơ đã giải quyết, trạng thái xử lý và thông tin công khai theo quy định.</p>
+    </header>
+
+    <section class="content-layout two-col">
+      <div class="content-main stack">
+        <article class="card filter-panel">
+          <form id="public-result-filter-form">
+            <div class="filter-grid four-col">
+              <label>
+                Mã hồ sơ
+                <input type="search" name="record_code" placeholder="Ví dụ: HS-2026-001234">
+              </label>
+              <label>
+                Nhóm thủ tục
+                <select name="procedure_group">
+                  <option value="">Tất cả</option>
+                  <option value="cap-gcn">Cấp giấy chứng nhận</option>
+                  <option value="bien-dong">Đăng ký biến động</option>
+                  <option value="the-chap">Xóa/đăng ký thế chấp</option>
+                </select>
+              </label>
+              <label>
+                Trạng thái kết quả
+                <select name="result_status">
+                  <option value="">Tất cả</option>
+                  <option value="done">Đã giải quyết</option>
+                  <option value="pending">Đang xử lý</option>
+                  <option value="supplement">Yêu cầu bổ sung</option>
+                </select>
+              </label>
+              <label>
+                Khoảng thời gian
+                <select name="time">
+                  <option value="">Tất cả</option>
+                  <option value="7days">7 ngày gần đây</option>
+                  <option value="30days">30 ngày gần đây</option>
+                </select>
+              </label>
+            </div>
+          </form>
+        </article>
+
+        <article class="card table-wrap">
+          <table>
+            <caption>Danh sách công khai kết quả</caption>
+            <thead>
+              <tr>
+                <th>Mã hồ sơ</th>
+                <th>Thủ tục</th>
+                <th>Người nộp (ẩn danh)</th>
+                <th>Ngày cập nhật</th>
+                <th>Trạng thái</th>
+                <th>Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody id="public-result-table-body">
+              <tr class="public-result-row" data-procedure-group="cap-gcn" data-result-status="done" data-time="7days">
+                <td>HS-2026-001245</td>
+                <td>Cấp giấy chứng nhận quyền sử dụng đất lần đầu</td>
+                <td>Ng*** T*** T***</td>
+                <td>10/03/2026</td>
+                <td><span class="badge badge-success">Đã giải quyết</span></td>
+                <td><a class="text-link" href="#">Xem</a></td>
+              </tr>
+              <tr class="public-result-row" data-procedure-group="bien-dong" data-result-status="pending" data-time="30days">
+                <td>HS-2026-001102</td>
+                <td>Đăng ký biến động do chuyển nhượng quyền sử dụng đất</td>
+                <td>Tr*** V*** A***</td>
+                <td>09/03/2026</td>
+                <td><span class="badge badge-warning">Đang xử lý</span></td>
+                <td><a class="text-link" href="#">Xem</a></td>
+              </tr>
+              <tr class="public-result-row" data-procedure-group="the-chap" data-result-status="supplement" data-time="7days">
+                <td>HS-2026-001221</td>
+                <td>Xóa đăng ký thế chấp quyền sử dụng đất</td>
+                <td>L*** T*** C***</td>
+                <td>10/03/2026</td>
+                <td><span class="badge badge-info">Yêu cầu bổ sung</span></td>
+                <td><a class="text-link" href="#">Xem</a></td>
+              </tr>
+              <tr class="public-result-row" data-procedure-group="cap-gcn" data-result-status="done" data-time="30days">
+                <td>HS-2026-000954</td>
+                <td>Cấp đổi giấy chứng nhận quyền sử dụng đất</td>
+                <td>Ph*** V*** M***</td>
+                <td>02/03/2026</td>
+                <td><span class="badge badge-success">Đã giải quyết</span></td>
+                <td><a class="text-link" href="#">Xem</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+
+      <aside class="content-rail stack">
+        <article class="card panel-card">
+          <h3 class="panel-title">Lưu ý công khai thông tin</h3>
+          <ul class="compact-list">
+            <li>Thông tin cá nhân được ẩn theo quy định bảo mật.</li>
+            <li>Dữ liệu cập nhật theo tiến độ xử lý hồ sơ thực tế.</li>
+            <li>Kết quả chính thức được trả tại bộ phận tiếp nhận hoặc qua dịch vụ công.</li>
+          </ul>
+        </article>
+        <article class="card panel-card utility-card"><a href="tthc.html">Tra cứu thủ tục hành chính</a></article>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Văn phòng Đăng ký đất đai Thanh Hóa</h2>
+        <p>Địa chỉ: Số 01, Đại lộ Lê Lợi, TP. Thanh Hóa</p>
+      </div>
+      <div class="footer-links">
+        <a href="congkhai-kq.html">Công khai kết quả</a>
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a href="lienhe.html">Liên hệ</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

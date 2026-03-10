@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Văn bản - VPDK Đất đai Thanh Hóa</title>
+  <meta name="description" content="Tra cứu văn bản quy phạm pháp luật và văn bản hướng dẫn lĩnh vực đất đai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+  <header class="site-header">
+    <div class="container header-brand">
+      <div class="brand-mark" aria-hidden="true">VN</div>
+      <div class="brand-text">
+        <p class="brand-overline">TRANG THÔNG TIN ĐIỆN TỬ</p>
+        <h1 class="brand-title">VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI THANH HÓA</h1>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">Menu</button>
+    </div>
+    <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <div class="container nav-inner">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="tintuc.html">Tin tức sự kiện</a>
+        <a class="is-active" href="vanban.html">Văn bản</a>
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a href="congkhai-kq.html">Công khai KQ giải quyết TTHC</a>
+        <a href="homthunong.html">Hòm thư nóng</a>
+        <a href="lienhe.html">Liên hệ</a>
+        <a href="hoidap.html">Hỏi đáp</a>
+      </div>
+    </nav>
+    <button class="nav-backdrop" type="button" aria-label="Đóng menu"></button>
+  </header>
+
+  <div class="mobile-quick-actions" aria-label="Truy cập nhanh">
+    <a href="tthc.html">TTHC</a>
+    <a href="congkhai-kq.html">Công khai</a>
+    <a href="hoidap.html">Hỏi đáp</a>
+  </div>
+
+  <main id="main-content" class="container page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a> / <span aria-current="page">Văn bản</span>
+    </nav>
+
+    <header class="page-head">
+      <h2>Tra cứu văn bản</h2>
+      <p>Văn bản quy phạm pháp luật và văn bản hướng dẫn liên quan đến quản lý, đăng ký và công khai thông tin đất đai.</p>
+    </header>
+
+    <section class="content-layout two-col">
+      <div class="content-main stack">
+        <article class="card filter-panel">
+          <form id="doc-filter-form">
+            <div class="filter-grid four-col">
+              <label>
+                Từ khóa
+                <input type="search" name="keyword" placeholder="Nhập số hiệu hoặc nội dung văn bản...">
+              </label>
+              <label>
+                Loại văn bản
+                <select name="doc_type">
+                  <option value="">Tất cả</option>
+                  <option value="quyet-dinh">Quyết định</option>
+                  <option value="thong-bao">Thông báo</option>
+                  <option value="huong-dan">Hướng dẫn</option>
+                </select>
+              </label>
+              <label>
+                Trạng thái hiệu lực
+                <select name="status">
+                  <option value="">Tất cả</option>
+                  <option value="con-hieu-luc">Còn hiệu lực</option>
+                  <option value="het-hieu-luc">Hết hiệu lực</option>
+                </select>
+              </label>
+              <label>
+                Năm ban hành
+                <select name="year">
+                  <option value="">Tất cả</option>
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                </select>
+              </label>
+            </div>
+          </form>
+        </article>
+
+        <article class="card table-wrap">
+          <table>
+            <caption>Danh mục văn bản</caption>
+            <thead>
+              <tr>
+                <th>Số hiệu</th>
+                <th>Tên văn bản</th>
+                <th>Loại</th>
+                <th>Ngày ban hành</th>
+                <th>Hiệu lực</th>
+                <th>Tệp</th>
+              </tr>
+            </thead>
+            <tbody id="doc-table-body">
+              <tr class="doc-row" data-doc-type="quyet-dinh" data-status="con-hieu-luc" data-year="2026">
+                <td>120/QĐ-VPDKĐĐ</td>
+                <td>Quyết định ban hành quy trình nội bộ giải quyết thủ tục hành chính lĩnh vực đất đai</td>
+                <td>Quyết định</td>
+                <td>05/03/2026</td>
+                <td><span class="badge badge-success">Còn hiệu lực</span></td>
+                <td><a class="text-link" href="#">Tải PDF</a></td>
+              </tr>
+              <tr class="doc-row" data-doc-type="thong-bao" data-status="con-hieu-luc" data-year="2026">
+                <td>45/TB-VPDKĐĐ</td>
+                <td>Thông báo cập nhật lịch tiếp nhận hồ sơ tại bộ phận một cửa</td>
+                <td>Thông báo</td>
+                <td>08/03/2026</td>
+                <td><span class="badge badge-success">Còn hiệu lực</span></td>
+                <td><a class="text-link" href="#">Tải PDF</a></td>
+              </tr>
+              <tr class="doc-row" data-doc-type="huong-dan" data-status="con-hieu-luc" data-year="2025">
+                <td>18/HD-VPDKĐĐ</td>
+                <td>Hướng dẫn quét mã QR tra cứu thông tin giấy chứng nhận trực tuyến</td>
+                <td>Hướng dẫn</td>
+                <td>20/11/2025</td>
+                <td><span class="badge badge-success">Còn hiệu lực</span></td>
+                <td><a class="text-link" href="#">Tải PDF</a></td>
+              </tr>
+              <tr class="doc-row" data-doc-type="quyet-dinh" data-status="het-hieu-luc" data-year="2025">
+                <td>88/QĐ-VPDKĐĐ</td>
+                <td>Quyết định về quy trình cũ đã thay thế</td>
+                <td>Quyết định</td>
+                <td>01/02/2025</td>
+                <td><span class="badge badge-warning">Hết hiệu lực</span></td>
+                <td><a class="text-link" href="#">Tải PDF</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+
+      <aside class="content-rail stack">
+        <article class="card panel-card">
+          <h3 class="panel-title">Nhãn lọc nhanh</h3>
+          <div class="chip-group">
+            <button type="button" class="chip doc-filter-chip" data-doc-filter="quyet-dinh">Quyết định</button>
+            <button type="button" class="chip doc-filter-chip" data-doc-filter="thong-bao">Thông báo</button>
+            <button type="button" class="chip doc-filter-chip" data-doc-filter="huong-dan">Hướng dẫn</button>
+          </div>
+        </article>
+        <article class="card panel-card utility-card"><a href="tthc.html">Tra cứu thủ tục hành chính</a></article>
+        <article class="card panel-card utility-card"><a href="congkhai-kq.html">Công khai KQ giải quyết TTHC</a></article>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Văn phòng Đăng ký đất đai Thanh Hóa</h2>
+        <p>Địa chỉ: Số 01, Đại lộ Lê Lợi, TP. Thanh Hóa</p>
+      </div>
+      <div class="footer-links">
+        <a href="vanban.html">Văn bản</a>
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a href="lienhe.html">Liên hệ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

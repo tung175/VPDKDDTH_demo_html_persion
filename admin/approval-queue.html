@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Portal - Hàng đợi duyệt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="role-super_admin">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand"><strong>Admin Portal</strong><span>VPDKĐĐ Thanh Hóa</span></div>
+      <div class="nav-group">
+        <h3>MVP nội dung</h3>
+        <a class="nav-link" href="index.html"><span>Dashboard</span></a>
+        <a class="nav-link" href="homepage-manager.html"><span>Trang chủ</span></a>
+        <a class="nav-link" href="news-list.html"><span>Tin tức/Sự kiện</span></a>
+        <a class="nav-link" href="news-editor.html"><span>Soạn thảo bài</span></a>
+        <a class="nav-link" href="media-library.html"><span>Media</span></a>
+        <a class="nav-link active" href="approval-queue.html"><span>Duyệt nội dung</span></a>
+        <a class="nav-link" href="workflow-history.html"><span>Workflow history</span></a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left"><input type="search" placeholder="Tìm item cần duyệt..."></div>
+        <div class="topbar-right">
+          <label class="chip" for="role-switcher">Vai trò</label>
+          <select id="role-switcher">
+            <option value="super_admin">Super Admin</option>
+            <option value="bien_tap_vien">Biên tập viên</option>
+            <option value="kiem_duyet_vien">Kiểm duyệt viên</option>
+            <option value="chuyen_vien">Chuyên viên nghiệp vụ</option>
+          </select>
+        </div>
+      </header>
+
+      <section class="page">
+        <div class="page-head">
+          <div>
+            <h1>Hàng đợi duyệt nội dung</h1>
+            <p class="sub">So sánh phiên bản, phê duyệt/từ chối, ghi chú lý do và tạo audit trail.</p>
+          </div>
+        </div>
+
+        <article class="card table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Loại nội dung</th>
+                <th>Tiêu đề</th>
+                <th>Người gửi duyệt</th>
+                <th>Thời điểm</th>
+                <th>SLA còn lại</th>
+                <th>Trạng thái</th>
+                <th>Tác vụ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tin tức</td>
+                <td>Kế hoạch cải cách hành chính quý II</td>
+                <td>Nguyễn Văn A</td>
+                <td>09/03/2026 10:40</td>
+                <td>03h20m</td>
+                <td><span class="status review">review</span></td>
+                <td>
+                  <div class="actions">
+                    <button class="btn secondary">Compare version</button>
+                    <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Approve</button>
+                    <button class="btn warn role-gated" data-roles="super_admin kiem_duyet_vien">Reject</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Trang chủ</td>
+                <td>Khối thông báo khẩn tháng 3</td>
+                <td>Trần Thị B</td>
+                <td>09/03/2026 09:00</td>
+                <td>01h10m</td>
+                <td><span class="status review">review</span></td>
+                <td>
+                  <div class="actions">
+                    <button class="btn secondary">Xem preview</button>
+                    <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Approve</button>
+                    <button class="btn warn role-gated" data-roles="super_admin kiem_duyet_vien">Reject</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <div class="grid-2">
+          <article class="card">
+            <h2>ApprovalPanel mẫu</h2>
+            <div class="form-grid">
+              <label>Kết quả duyệt
+                <select><option>Approve</option><option>Reject</option></select>
+              </label>
+              <label>Ghi chú bắt buộc nếu Reject
+                <textarea rows="3">Thiếu số hiệu văn bản trong phần trích dẫn.</textarea>
+              </label>
+            </div>
+            <div class="actions" style="margin-top:0.65rem;">
+              <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Xác nhận duyệt</button>
+              <button class="btn secondary">Hủy</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>Compare version mẫu</h2>
+            <div class="wireframe">[Version N-1]
+- tiêu đề cũ
+- summary cũ
+- chưa có nguồn văn bản
+
+[Version N]
++ cập nhật tiêu đề mới
++ bổ sung số hiệu văn bản 120/QĐ
++ thêm metadata SEO</div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>

@@ -118,3 +118,107 @@
 
   form.addEventListener("input", applyFilter);
 })();
+
+(function initNewsFilterDemo() {
+  const form = document.querySelector("#news-filter-form");
+  const records = Array.from(document.querySelectorAll(".news-record"));
+  if (!form || !records.length) return;
+
+  function normalize(text) {
+    return text.toLowerCase().trim();
+  }
+
+  function applyFilter() {
+    const data = new FormData(form);
+    const keyword = normalize(String(data.get("keyword") || ""));
+    const category = normalize(String(data.get("category") || ""));
+    const time = normalize(String(data.get("time") || ""));
+
+    records.forEach(function (record) {
+      const text = normalize(record.textContent || "");
+      const rowCategory = normalize(record.getAttribute("data-category") || "");
+      const rowTime = normalize(record.getAttribute("data-time") || "");
+      const matchKeyword = !keyword || text.includes(keyword);
+      const matchCategory = !category || rowCategory === category;
+      const matchTime = !time || rowTime === time;
+      record.hidden = !(matchKeyword && matchCategory && matchTime);
+    });
+  }
+
+  form.addEventListener("input", applyFilter);
+})();
+
+(function initDocFilterDemo() {
+  const form = document.querySelector("#doc-filter-form");
+  const rows = Array.from(document.querySelectorAll(".doc-row"));
+  const chips = Array.from(document.querySelectorAll(".doc-filter-chip"));
+  if (!form || !rows.length) return;
+
+  function normalize(text) {
+    return text.toLowerCase().trim();
+  }
+
+  function applyFilter(forcedType) {
+    const data = new FormData(form);
+    const keyword = normalize(String(data.get("keyword") || ""));
+    const docType = normalize(forcedType || String(data.get("doc_type") || ""));
+    const status = normalize(String(data.get("status") || ""));
+    const year = normalize(String(data.get("year") || ""));
+
+    rows.forEach(function (row) {
+      const rowType = normalize(row.getAttribute("data-doc-type") || "");
+      const rowStatus = normalize(row.getAttribute("data-status") || "");
+      const rowYear = normalize(row.getAttribute("data-year") || "");
+      const text = normalize(row.textContent || "");
+      const matchKeyword = !keyword || text.includes(keyword);
+      const matchType = !docType || rowType === docType;
+      const matchStatus = !status || rowStatus === status;
+      const matchYear = !year || rowYear === year;
+      row.hidden = !(matchKeyword && matchType && matchStatus && matchYear);
+    });
+  }
+
+  form.addEventListener("input", function () {
+    applyFilter("");
+  });
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      applyFilter(chip.getAttribute("data-doc-filter") || "");
+    });
+  });
+})();
+
+(function initPublicResultFilterDemo() {
+  const form = document.querySelector("#public-result-filter-form");
+  const rows = Array.from(document.querySelectorAll(".public-result-row"));
+  if (!form || !rows.length) return;
+
+  function normalize(text) {
+    return text.toLowerCase().trim();
+  }
+
+  function applyFilter() {
+    const data = new FormData(form);
+    const recordCode = normalize(String(data.get("record_code") || ""));
+    const group = normalize(String(data.get("procedure_group") || ""));
+    const resultStatus = normalize(String(data.get("result_status") || ""));
+    const time = normalize(String(data.get("time") || ""));
+
+    rows.forEach(function (row) {
+      const rowGroup = normalize(row.getAttribute("data-procedure-group") || "");
+      const rowStatus = normalize(row.getAttribute("data-result-status") || "");
+      const rowTime = normalize(row.getAttribute("data-time") || "");
+      const text = normalize(row.textContent || "");
+
+      const matchCode = !recordCode || text.includes(recordCode);
+      const matchGroup = !group || rowGroup === group;
+      const matchStatus = !resultStatus || rowStatus === resultStatus;
+      const matchTime = !time || rowTime === time;
+
+      row.hidden = !(matchCode && matchGroup && matchStatus && matchTime);
+    });
+  }
+
+  form.addEventListener("input", applyFilter);
+})();

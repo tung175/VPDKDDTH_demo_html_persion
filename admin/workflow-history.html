@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Portal - Workflow History</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="role-super_admin">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand"><strong>Admin Portal</strong><span>VPDKĐĐ Thanh Hóa</span></div>
+      <div class="nav-group">
+        <h3>MVP nội dung</h3>
+        <a class="nav-link" href="index.html"><span>Dashboard</span></a>
+        <a class="nav-link" href="homepage-manager.html"><span>Trang chủ</span></a>
+        <a class="nav-link" href="news-list.html"><span>Tin tức/Sự kiện</span></a>
+        <a class="nav-link" href="news-editor.html"><span>Soạn thảo bài</span></a>
+        <a class="nav-link" href="media-library.html"><span>Media</span></a>
+        <a class="nav-link" href="approval-queue.html"><span>Duyệt nội dung</span></a>
+        <a class="nav-link active" href="workflow-history.html"><span>Workflow history</span></a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left"><input type="search" placeholder="Tìm theo record_id hoặc actor..."></div>
+        <div class="topbar-right">
+          <label class="chip" for="role-switcher">Vai trò</label>
+          <select id="role-switcher">
+            <option value="super_admin">Super Admin</option>
+            <option value="bien_tap_vien">Biên tập viên</option>
+            <option value="kiem_duyet_vien">Kiểm duyệt viên</option>
+            <option value="chuyen_vien">Chuyên viên nghiệp vụ</option>
+          </select>
+        </div>
+      </header>
+
+      <section class="page">
+        <div class="page-head">
+          <div>
+            <h1>Workflow history & Audit timeline</h1>
+            <p class="sub">Theo dõi trạng thái `draft | review | approved | published | archived` và event thao tác cho từng bản ghi.</p>
+          </div>
+          <div class="actions">
+            <button class="btn secondary">Filter theo module</button>
+            <button class="btn secondary">Filter theo actor</button>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h2>Timeline bản ghi: tin-2026-120</h2>
+            <ul class="timeline">
+              <li><strong>Draft</strong> - 09/03/2026 08:20 - Nguyễn Văn A tạo bản nháp</li>
+              <li><strong>Review</strong> - 09/03/2026 10:40 - Gửi duyệt</li>
+              <li><strong>Approved</strong> - 09/03/2026 11:15 - Kiểm duyệt viên chấp thuận</li>
+              <li><strong>Published</strong> - 09/03/2026 11:20 - Hệ thống xuất bản</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Audit event chuẩn</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>action</th>
+                    <th>module</th>
+                    <th>record_id</th>
+                    <th>actor</th>
+                    <th>timestamp</th>
+                    <th>note</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>submit_for_review</td>
+                    <td>news</td>
+                    <td>tin-2026-120</td>
+                    <td>nguyenvana</td>
+                    <td>2026-03-09 10:40</td>
+                    <td>Gửi duyệt bài sau chỉnh sửa</td>
+                  </tr>
+                  <tr>
+                    <td>approve_content</td>
+                    <td>news</td>
+                    <td>tin-2026-120</td>
+                    <td>kiemduyet01</td>
+                    <td>2026-03-09 11:15</td>
+                    <td>Đạt tiêu chuẩn nội dung</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+
+        <article class="card">
+          <h2>Acceptance checks (màn hình này)</h2>
+          <ul class="list">
+            <li>Hiển thị đầy đủ chuỗi trạng thái workflow, không nhảy trạng thái trái quy tắc.</li>
+            <li>Mỗi thao tác duyệt/từ chối/publish phải có event trong audit.</li>
+            <li>Truy vết được theo actor, module, record_id, timestamp.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>
