@@ -192,16 +192,7 @@
 
         <aside class="right-rail stack" aria-label="Tiện ích nhanh">
           <article class="card panel-card">
-            <h2 class="panel-title">Tìm nhanh</h2>
-            <form class="rail-search-form">
-              <label class="sr-only" for="rail-search-input">Tìm kiếm</label>
-              <input id="rail-search-input" type="search" placeholder="Nhập từ khóa cần tìm...">
-              <button type="submit">Tìm</button>
-            </form>
-          </article>
-
-          <article class="card panel-card">
-            <h2 class="panel-title">Giới thiệu</h2>
+            <h3 class="panel-title">Giới thiệu</h3>
             <ul class="link-list">
               <li><a href="gioithieu.html#loi-chao">Lời chào mừng</a></li>
               <li><a href="gioithieu.html#co-cau">Cơ cấu tổ chức, bộ máy</a></li>
@@ -211,18 +202,20 @@
             </ul>
           </article>
 
-          <article class="card panel-card utility-card"><a href="vanban.html">Văn bản quy phạm pháp luật</a></article>
-          <article class="card panel-card utility-card"><a href="homthunong.html">Hòm thư nóng - tiếp nhận phản ánh</a></article>
-          <article class="card panel-card utility-card"><a href="congkhai-kq.html">Công khai danh mục và kết quả TTHC</a></article>
-
-          <article class="card panel-card">
-            <h2 class="panel-title">Thống kê truy cập</h2>
-            <dl class="stats-list">
-              <div><dt>Đang online</dt><dd>8</dd></div>
-              <div><dt>Hôm nay</dt><dd>313</dd></div>
-              <div><dt>Trong tuần</dt><dd>1,248</dd></div>
-              <div><dt>Tất cả</dt><dd>98,506</dd></div>
-            </dl>
+          <article class="card panel-card utility-card utility-banner">
+            <a href="vanban.html" aria-label="Văn bản quy phạm pháp luật">
+              <img src="assets/vbpl.jpg" alt="Văn bản quy phạm pháp luật" loading="lazy">
+            </a>
+          </article>
+          <article class="card panel-card utility-card utility-banner">
+            <a href="homthunong.html" aria-label="Lịch công tác và tiếp dân">
+              <img src="assets/lich.jpg" alt="Lịch công tác và tiếp dân" loading="lazy">
+            </a>
+          </article>
+          <article class="card panel-card utility-card utility-banner">
+            <a href="congkhai-kq.html" aria-label="Công khai danh mục và kết quả TTHC">
+              <img src="assets/tthc1.jpg" alt="Công khai danh mục và kết quả TTHC" loading="lazy">
+            </a>
           </article>
         </aside>
       </div>
@@ -230,16 +223,54 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h2>Văn phòng Đăng ký đất đai Thanh Hóa</h2>
-        <p>Địa chỉ: Số 01, Đại lộ Lê Lợi, TP. Thanh Hóa</p>
+    <div class="container footer-shell">
+      <div class="footer-top">
+        <section class="footer-col footer-about" aria-label="Thông tin đơn vị">
+          <h2 class="footer-brand">
+            <span class="footer-brand-mark" aria-hidden="true">
+              <img src="assets/quoc-huy-961881.png" alt="" loading="lazy">
+            </span>
+            VPDKĐĐ THANH HÓA
+          </h2>
+          <p>Cung cấp dịch vụ hành chính công về đất đai minh bạch, hiện đại, hướng tới nền hành chính phục vụ người dân xứ Thanh.</p>
+          <div class="footer-social" aria-label="Kết nối nhanh">
+            <a href="index.html">Trang chủ</a>
+            <a href="mailto:vpdkdd@thanhhoa.gov.vn">Email</a>
+          </div>
+        </section>
+
+        <nav class="footer-col" aria-label="Liên kết nhanh">
+          <h3>Liên kết nhanh</h3>
+          <ul class="footer-list">
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="tintuc.html">Tin tức sự kiện</a></li>
+            <li><a href="vanban.html">Văn bản</a></li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Dịch vụ">
+          <h3>Dịch vụ</h3>
+          <ul class="footer-list">
+            <li><a href="tthc.html">Tra cứu thủ tục hành chính</a></li>
+            <li><a href="congkhai-kq.html">Công khai kết quả TTHC</a></li>
+            <li><a href="homthunong.html">Hòm thư nóng tiếp nhận phản ánh</a></li>
+            <li><a href="hoidap.html">Hỏi đáp trực tuyến</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer-col" aria-label="Thông tin liên hệ">
+          <h3>Liên hệ</h3>
+          <ul class="footer-contact-list">
+            <li>Số 01 Đại lộ Lê Lợi, TP. Thanh Hóa</li>
+            <li><a href="tel:02373700000">0237 370 0000</a></li>
+            <li><a href="mailto:vpdkdd@thanhhoa.gov.vn">vpdkdd@thanhhoa.gov.vn</a></li>
+            <li>Thứ 2 - Thứ 6: 07:30 - 17:00</li>
+          </ul>
+        </section>
       </div>
-      <div class="footer-links">
-        <a href="tthc.html">Thủ tục hành chính</a>
-        <a href="congkhai-kq.html">Công khai kết quả</a>
-        <a href="hoidap.html">Hỏi đáp</a>
-        <a href="lienhe.html">Liên hệ</a>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Văn phòng Đăng ký Đất đai Tỉnh Thanh Hóa. Bảo lưu mọi quyền.</p>
       </div>
     </div>
   </footer>
@@ -247,4 +278,3 @@
   <script src="assets/js/app.js" defer></script>
 </body>
 </html>
-
