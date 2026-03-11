@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Portal - Dashboard</title>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="role-super_admin">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <strong>Admin Portal</strong>
+        <span>VPDKĐĐ Thanh Hóa</span>
+      </div>
+
+      <div class="nav-group">
+        <h3>MVP nội dung</h3>
+        <a class="nav-link active" href="index.html"><span>Dashboard</span></a>
+        <a class="nav-link" href="homepage-manager.html"><span>Trang chủ</span></a>
+        <a class="nav-link" href="news-list.html"><span>Tin tức/Sự kiện</span></a>
+        <a class="nav-link" href="news-editor.html"><span>Soạn thảo bài</span></a>
+        <a class="nav-link" href="media-library.html"><span>Media</span></a>
+        <a class="nav-link" href="approval-queue.html"><span>Duyệt nội dung</span></a>
+        <a class="nav-link" href="workflow-history.html"><span>Workflow history</span></a>
+      </div>
+
+      <div class="nav-group">
+        <h3>Phase sau</h3>
+        <a class="nav-link disabled" href="#"><span>TTHC</span><small>Sau</small></a>
+        <a class="nav-link disabled" href="#"><span>Hỏi đáp</span><small>Sau</small></a>
+        <a class="nav-link disabled" href="#"><span>Liên hệ/Ticket</span><small>Sau</small></a>
+      </div>
+
+      <div class="nav-group">
+        <h3>Hệ thống</h3>
+        <a class="nav-link" href="#"><span>Báo cáo</span></a>
+        <a class="nav-link" href="#"><span>Người dùng & quyền</span></a>
+        <a class="nav-link" href="#"><span>Audit log</span></a>
+        <a class="nav-link" href="#"><span>Cấu hình</span></a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <input type="search" placeholder="Tìm nhanh: bài viết, ticket, mã thủ tục...">
+          <span class="chip">Thông báo: 5</span>
+          <span class="chip">Cần duyệt: 12</span>
+        </div>
+        <div class="topbar-right">
+          <label class="chip" for="role-switcher">Vai trò</label>
+          <select id="role-switcher">
+            <option value="super_admin">Super Admin</option>
+            <option value="bien_tap_vien">Biên tập viên</option>
+            <option value="kiem_duyet_vien">Kiểm duyệt viên</option>
+            <option value="chuyen_vien">Chuyên viên nghiệp vụ</option>
+          </select>
+          <span class="chip">TK: admin.vpdkdd</span>
+        </div>
+      </header>
+
+      <section class="page">
+        <div class="page-head">
+          <div>
+            <h1>Dashboard tổng quan</h1>
+            <p class="sub">Theo dõi KPI nội dung, hàng đợi duyệt, cảnh báo SLA và luồng công việc trong <= 2 click đến từng chức năng MVP.</p>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="news-editor.html">Tạo bài mới</a>
+            <a class="btn secondary" href="approval-queue.html">Đi tới hàng duyệt</a>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card kpi">
+            <h2>Bài đang chờ duyệt</h2>
+            <strong>12</strong>
+            <small>+3 so với hôm qua</small>
+          </article>
+          <article class="card kpi">
+            <h2>Bài đã xuất bản tuần này</h2>
+            <strong>46</strong>
+            <small>Tỷ lệ đúng lịch 97%</small>
+          </article>
+          <article class="card kpi">
+            <h2>Ticket quá SLA</h2>
+            <strong>2</strong>
+            <small>Cần xử lý trong 4 giờ</small>
+          </article>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="page-head">
+              <h2>Biểu đồ trạng thái nội dung</h2>
+            </div>
+            <ul class="list">
+              <li>Draft: 24 bản ghi</li>
+              <li>Review: 12 bản ghi</li>
+              <li>Approved: 9 bản ghi</li>
+              <li>Published: 214 bản ghi</li>
+              <li>Archived: 53 bản ghi</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="page-head">
+              <h2>Việc cần duyệt ngay</h2>
+            </div>
+            <ul class="list">
+              <li>[Tin tức] Kế hoạch cải cách TTHC quý II - quá hạn 3h</li>
+              <li>[Trang chủ] Khối thông báo khẩn cần publish trước 17:00</li>
+              <li>[Văn bản] Quyết định số 120 cần đối soát hiệu lực</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="card">
+          <div class="page-head">
+            <div>
+              <h2>Wireframe text tiêu chuẩn màn hình</h2>
+              <p class="sub">Áp dụng chung cho list/detail/editor trong admin.</p>
+            </div>
+          </div>
+          <div class="wireframe">[Action Header]  Tiêu đề + CTA chính + CTA phụ
+[Filter/Search] Bộ lọc trạng thái, thời gian, tác giả, từ khóa
+[Data View]     Table/List/Card + cột status + quick actions
+[Drawer/Modal]  Duyệt, từ chối, pin/unpin, lịch publish
+[Footer]        Pagination + tổng bản ghi + export</div>
+        </article>
+
+        <article class="card">
+          <div class="page-head">
+            <h2>UI States và Validation</h2>
+            <div class="actions">
+              <button class="btn secondary" data-target="state-preview" data-show-state="empty">Empty</button>
+              <button class="btn secondary" data-target="state-preview" data-show-state="loading">Loading</button>
+              <button class="btn secondary" data-target="state-preview" data-show-state="error">Error</button>
+              <button class="btn secondary" data-target="state-preview" data-show-state="no_permission">No permission</button>
+              <button class="btn secondary" data-target="state-preview" data-show-state="archived">Archived</button>
+              <button class="btn secondary" data-target="state-preview" data-show-state="scheduled">Scheduled</button>
+            </div>
+          </div>
+
+          <div id="state-preview">
+            <div class="state-card" data-state="empty">
+              <h4>Empty</h4>
+              <p>Không có dữ liệu phù hợp bộ lọc hiện tại.</p>
+            </div>
+            <div class="state-card" data-state="loading" hidden>
+              <h4>Loading</h4>
+              <p>Đang tải dữ liệu, vui lòng chờ...</p>
+            </div>
+            <div class="state-card" data-state="error" hidden>
+              <h4>Error</h4>
+              <p>Không thể tải dữ liệu. Thử lại hoặc liên hệ quản trị hệ thống.</p>
+            </div>
+            <div class="state-card" data-state="no_permission" hidden>
+              <h4>No permission</h4>
+              <p>Bạn không có quyền thao tác chức năng này.</p>
+            </div>
+            <div class="state-card" data-state="archived" hidden>
+              <h4>Archived</h4>
+              <p>Bản ghi đã lưu trữ, chỉ cho phép xem lịch sử.</p>
+            </div>
+            <div class="state-card" data-state="scheduled" hidden>
+              <h4>Scheduled</h4>
+              <p>Nội dung được hẹn xuất bản lúc 09:00 ngày 11/03/2026.</p>
+            </div>
+          </div>
+
+          <div class="toast-row">
+            <span class="toast success">Lưu bản nháp thành công</span>
+            <span class="toast warn">Đã gửi duyệt, chờ kiểm duyệt viên</span>
+            <span class="toast error">Thiếu metadata bắt buộc</span>
+          </div>
+          <p class="role-note">Phân quyền demo: Biên tập viên sẽ không hiển thị nút Publish trực tiếp ở các màn hình biên tập.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>

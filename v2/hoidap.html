@@ -1,0 +1,174 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hỏi đáp - VPDK Đất đai Thanh Hóa</title>
+  <meta name="description" content="Hỏi đáp về thủ tục và nghiệp vụ đất đai.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+  <header class="site-header">
+    <div class="container header-brand">
+      <img class="brand-logo" src="assets/quoc-huy-961881.png" alt="Quốc huy Việt Nam">
+      <div class="brand-text">
+        <p class="brand-overline">TRANG THÔNG TIN ĐIỆN TỬ</p>
+        <h1 class="brand-title">VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI THANH HÓA</h1>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">Menu</button>
+    </div>
+    <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <div class="container nav-inner">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="tintuc.html">Tin tức sự kiện</a>
+        <a href="vanban.html">Văn bản</a>
+        <a href="tthc.html">Thủ tục hành chính</a>
+        <a href="congkhai-kq.html">Công khai KQ giải quyết TTHC</a>
+        <a href="homthunong.html">Hòm thư nóng</a>
+        <a href="lienhe.html">Liên hệ</a>
+        <a class="is-active" href="hoidap.html">Hỏi đáp</a>
+      </div>
+    </nav>
+    <button class="nav-backdrop" type="button" aria-label="Đóng menu"></button>
+  </header>
+
+  <div class="mobile-quick-actions" aria-label="Truy cập nhanh">
+    <a href="tthc.html">TTHC</a>
+    <a href="congkhai-kq.html">Công khai</a>
+    <a href="hoidap.html">Hỏi đáp</a>
+  </div>
+
+  <main id="main-content" class="container page">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+            <li class="breadcrumb-item"><span aria-current="page">Hỏi đáp</span></li>
+          </ol>
+        </nav>
+
+    <header class="page-head">
+      <h2>Hỏi đáp trực tuyến</h2>
+      <p>Tra cứu câu hỏi đã trả lời, lọc theo lĩnh vực và trạng thái xử lý.</p>
+    </header>
+
+    <section class="content-layout two-col">
+      <div class="content-main stack">
+        <article class="filter-panel card">
+          <form id="qa-filter-form">
+            <div class="filter-grid three-col">
+              <label>
+                Lĩnh vực
+                <select name="field">
+                  <option value="">Tất cả</option>
+                  <option value="hoso">Hồ sơ cấp giấy</option>
+                  <option value="chuyennhuong">Chuyển nhượng</option>
+                  <option value="thechap">Thế chấp</option>
+                </select>
+              </label>
+              <label>
+                Trạng thái
+                <select name="status">
+                  <option value="">Tất cả</option>
+                  <option value="answered">Đã trả lời</option>
+                  <option value="pending">Chờ trả lời</option>
+                </select>
+              </label>
+              <label>
+                Từ khóa
+                <input type="search" name="keyword" placeholder="Nhập nội dung câu hỏi...">
+              </label>
+            </div>
+          </form>
+        </article>
+
+        <section class="stack" aria-label="Danh sách hỏi đáp">
+          <article class="qa-card card" data-status="answered">
+            <h3>Hồ sơ cấp đổi giấy chứng nhận bị thiếu tờ khai, cần bổ sung thế nào?</h3>
+            <p class="meta">Lĩnh vực: Hồ sơ cấp giấy · 08/03/2026</p>
+            <p><strong>Trả lời:</strong> Người dân bổ sung tờ khai theo mẫu 04/ĐK tại bộ phận một cửa hoặc nộp trực tuyến trên cổng dịch vụ công.</p>
+          </article>
+          <article class="qa-card card" data-status="answered">
+            <h3>Thời hạn giải quyết hồ sơ đăng ký biến động sau chuyển nhượng là bao lâu?</h3>
+            <p class="meta">Lĩnh vực: Chuyển nhượng · 06/03/2026</p>
+            <p><strong>Trả lời:</strong> Thời hạn xử lý theo quy định hiện hành là 10 ngày làm việc, không bao gồm thời gian bổ sung hồ sơ.</p>
+          </article>
+          <article class="qa-card card" data-status="pending">
+            <h3>Tôi muốn xóa thế chấp sổ đỏ đã tất toán ngân hàng thì cần giấy tờ gì?</h3>
+            <p class="meta">Lĩnh vực: Thế chấp · 05/03/2026</p>
+            <p><strong>Trạng thái:</strong> Đang chuyển chuyên viên phụ trách trả lời.</p>
+          </article>
+        </section>
+      </div>
+
+      <aside class="content-rail stack">
+        <article class="card panel-card">
+          <h3 class="panel-title">Hướng dẫn nhanh</h3>
+          <ul class="compact-list">
+            <li>Mô tả rõ mã hồ sơ hoặc tên thủ tục khi gửi câu hỏi.</li>
+            <li>Đính kèm thông tin liên hệ để nhận phản hồi sớm.</li>
+            <li>Kiểm tra mục câu hỏi đã trả lời trước khi gửi mới.</li>
+          </ul>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div class="footer-top">
+        <section class="footer-col footer-about" aria-label="Thông tin đơn vị">
+          <h2 class="footer-brand">
+            <span class="footer-brand-mark" aria-hidden="true">
+              <img src="assets/quoc-huy-961881.png" alt="" loading="lazy">
+            </span>
+            VPDKĐĐ THANH HÓA
+          </h2>
+          <p>Cung cấp dịch vụ hành chính công về đất đai minh bạch, hiện đại, hướng tới nền hành chính phục vụ người dân xứ Thanh.</p>
+          <div class="footer-social" aria-label="Kết nối nhanh">
+            <a href="index.html">Trang chủ</a>
+            <a href="mailto:vpdkdd@thanhhoa.gov.vn">Email</a>
+          </div>
+        </section>
+
+        <nav class="footer-col" aria-label="Liên kết nhanh">
+          <h3>Liên kết nhanh</h3>
+          <ul class="footer-list">
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="tintuc.html">Tin tức sự kiện</a></li>
+            <li><a href="vanban.html">Văn bản</a></li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Dịch vụ">
+          <h3>Dịch vụ</h3>
+          <ul class="footer-list">
+            <li><a href="tthc.html">Tra cứu thủ tục hành chính</a></li>
+            <li><a href="congkhai-kq.html">Công khai kết quả TTHC</a></li>
+            <li><a href="homthunong.html">Hòm thư nóng tiếp nhận phản ánh</a></li>
+            <li><a href="hoidap.html">Hỏi đáp trực tuyến</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer-col" aria-label="Thông tin liên hệ">
+          <h3>Liên hệ</h3>
+          <ul class="footer-contact-list">
+            <li>Số 01 Đại lộ Lê Lợi, TP. Thanh Hóa</li>
+            <li><a href="tel:02373700000">0237 370 0000</a></li>
+            <li><a href="mailto:vpdkdd@thanhhoa.gov.vn">vpdkdd@thanhhoa.gov.vn</a></li>
+            <li>Thứ 2 - Thứ 6: 07:30 - 17:00</li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Văn phòng Đăng ký Đất đai Tỉnh Thanh Hóa. Bảo lưu mọi quyền.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
+
+
