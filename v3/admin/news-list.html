@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Portal - Danh sách tin tức</title>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="role-super_admin">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand"><strong>Admin Portal</strong><span>VPDKĐĐ Thanh Hóa</span></div>
+      <div class="nav-group">
+        <h3>MVP nội dung</h3>
+        <a class="nav-link" href="index.html"><span>Dashboard</span></a>
+        <a class="nav-link" href="homepage-manager.html"><span>Trang chủ</span></a>
+        <a class="nav-link active" href="news-list.html"><span>Tin tức/Sự kiện</span></a>
+        <a class="nav-link" href="news-editor.html"><span>Soạn thảo bài</span></a>
+        <a class="nav-link" href="media-library.html"><span>Media</span></a>
+        <a class="nav-link" href="approval-queue.html"><span>Duyệt nội dung</span></a>
+        <a class="nav-link" href="workflow-history.html"><span>Workflow history</span></a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left"><input type="search" placeholder="Tìm bài theo tiêu đề, slug..."></div>
+        <div class="topbar-right">
+          <label class="chip" for="role-switcher">Vai trò</label>
+          <select id="role-switcher">
+            <option value="super_admin">Super Admin</option>
+            <option value="bien_tap_vien">Biên tập viên</option>
+            <option value="kiem_duyet_vien">Kiểm duyệt viên</option>
+            <option value="chuyen_vien">Chuyên viên nghiệp vụ</option>
+          </select>
+        </div>
+      </header>
+
+      <section class="page">
+        <div class="page-head">
+          <div>
+            <h1>Danh sách Tin tức/Sự kiện</h1>
+            <p class="sub">Bộ lọc đa điều kiện, bulk action, trạng thái workflow và tác vụ nhanh theo vai trò.</p>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="news-editor.html">Thêm bài mới</a>
+            <button class="btn secondary">Export CSV</button>
+          </div>
+        </div>
+
+        <article class="card">
+          <div class="filter-bar">
+            <input type="search" placeholder="Từ khóa">
+            <select><option>Trạng thái: tất cả</option><option>draft</option><option>review</option><option>published</option></select>
+            <select><option>Chuyên mục: tất cả</option><option>Tin sự kiện</option><option>Thông báo</option></select>
+            <button class="btn secondary">Lọc</button>
+          </div>
+          <div class="actions" style="margin-top:0.65rem;">
+            <button class="btn secondary">Bulk: Gửi duyệt</button>
+            <button class="btn secondary">Bulk: Gán chuyên mục</button>
+            <button class="btn danger role-gated" data-roles="super_admin">Bulk: Gỡ xuất bản</button>
+          </div>
+        </article>
+
+        <article class="card table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><input type="checkbox" aria-label="Chọn tất cả"></th>
+                <th>Tiêu đề</th>
+                <th>Tác giả</th>
+                <th>Cập nhật</th>
+                <th>Publish</th>
+                <th>Trạng thái</th>
+                <th>Featured</th>
+                <th>Tác vụ nhanh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" aria-label="row"></td>
+                <td>Kế hoạch cải cách hành chính quý II</td>
+                <td>Nguyễn Văn A</td>
+                <td>09/03/2026 10:20</td>
+                <td>-</td>
+                <td><span class="status draft">draft</span></td>
+                <td>Không</td>
+                <td>
+                  <div class="actions">
+                    <a class="btn secondary" href="news-editor.html">Sửa</a>
+                    <button class="btn secondary">Gửi duyệt</button>
+                    <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Publish</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" aria-label="row"></td>
+                <td>Thông báo lịch tiếp dân tháng 3</td>
+                <td>Trần Thị B</td>
+                <td>08/03/2026 16:10</td>
+                <td>09/03/2026 08:30</td>
+                <td><span class="status published">published</span></td>
+                <td>Có</td>
+                <td>
+                  <div class="actions">
+                    <button class="btn secondary">Pin homepage</button>
+                    <button class="btn danger role-gated" data-roles="super_admin kiem_duyet_vien">Gỡ publish</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" aria-label="row"></td>
+                <td>Dự thảo quy định mới về tiếp nhận hồ sơ</td>
+                <td>Lê Văn C</td>
+                <td>07/03/2026 14:00</td>
+                <td>-</td>
+                <td><span class="status review">review</span></td>
+                <td>Không</td>
+                <td>
+                  <div class="actions">
+                    <button class="btn secondary">Xem</button>
+                    <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Duyệt</button>
+                    <button class="btn warn role-gated" data-roles="super_admin kiem_duyet_vien">Từ chối</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card">
+          <div class="page-head">
+            <h2>Pagination footer</h2>
+          </div>
+          <div class="actions">
+            <button class="btn secondary">Trang trước</button>
+            <span class="chip">Trang 1 / 24</span>
+            <button class="btn secondary">Trang sau</button>
+            <span class="chip">Tổng bản ghi: 472</span>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>

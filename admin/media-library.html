@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
@@ -24,7 +24,10 @@
 
     <main class="main">
       <header class="topbar">
-        <div class="topbar-left"><input type="search" placeholder="Tìm media theo tên file, alt text..."></div>
+        <div class="topbar-left">
+          <button class="btn ghost icon command-trigger" type="button" aria-label="Mở command palette">⌘K</button>
+          <div class="search-shell"><input type="search" data-command-input placeholder="Tìm media theo tên file, alt text, tag..."></div>
+        </div>
         <div class="topbar-right">
           <label class="chip" for="role-switcher">Vai trò</label>
           <select id="role-switcher">
@@ -40,7 +43,7 @@
         <div class="page-head">
           <div>
             <h1>Media Library</h1>
-            <p class="sub">Upload, phân loại, chỉnh alt text, gắn banner/video và tái sử dụng tài nguyên.</p>
+            <p class="sub">Upload, phân loại, chỉnh alt text, theo dõi usage và cảnh báo metadata thiếu.</p>
           </div>
           <div class="actions">
             <button class="btn primary">Upload media</button>
@@ -50,66 +53,67 @@
 
         <article class="card">
           <div class="filter-bar">
-            <select><option>Loại: tất cả</option><option>image</option><option>video</option></select>
-            <select><option>Thư mục: trang chủ</option><option>tin tức</option><option>banner</option></select>
-            <select><option>Trạng thái tối ưu: tất cả</option><option>đạt</option><option>chưa đạt</option></select>
+            <select name="type"><option>Loại: tất cả</option><option>image</option><option>video</option><option>banner</option></select>
+            <select name="folder"><option>Thư mục: tất cả</option><option>homepage</option><option>news</option><option>documents</option></select>
+            <select name="quality"><option>Tối ưu: tất cả</option><option>đạt</option><option>cần tối ưu</option></select>
             <button class="btn secondary">Lọc</button>
+          </div>
+          <div class="view-strip">
+            <div class="saved-views">
+              <button class="pill active" type="button">Recent upload</button>
+              <button class="pill" type="button">Missing metadata</button>
+              <button class="pill" type="button">Used by homepage</button>
+            </div>
           </div>
         </article>
 
-        <div class="grid-3">
-          <article class="card">
-            <strong>tin-2026-03-09.webp</strong>
-            <ul class="list">
-              <li>alt text: Lãnh đạo phát biểu tại hội nghị</li>
-              <li>kích thước: 1280x720</li>
-              <li>dung lượng: 320KB</li>
-              <li>used_by: 3 bài viết</li>
-            </ul>
-            <div class="actions">
-              <button class="btn secondary">Chọn</button>
-              <button class="btn secondary">Sửa alt</button>
-              <button class="btn danger">Xóa</button>
+        <div class="grid-2">
+          <section class="card">
+            <h2>Danh sách media</h2>
+            <div class="media-grid" style="margin-top:0.6rem;">
+              <article class="card media-card" data-media-item data-media-name="tin-2026-03-09.webp" data-media-meta="1280x720 · 320KB · alt đầy đủ" data-media-usage="Đang dùng ở 3 bài viết">
+                <strong>tin-2026-03-09.webp</strong>
+                <ul class="list">
+                  <li>alt text: đủ</li>
+                  <li>size: 320KB</li>
+                  <li>used_by: 3 bài</li>
+                </ul>
+              </article>
+              <article class="card media-card" data-media-item data-media-name="banner-tthc-q2.webp" data-media-meta="1600x600 · 410KB" data-media-usage="Đang dùng ở homepage hero">
+                <strong>banner-tthc-q2.webp</strong>
+                <ul class="list">
+                  <li>alt text: đủ</li>
+                  <li>size: 410KB</li>
+                  <li>used_by: homepage</li>
+                </ul>
+              </article>
+              <article class="card media-card" data-media-item data-media-name="video-huong-dan-dvc.mp4" data-media-meta="03:21 · thumbnail có" data-media-usage="Đang dùng ở news-editor preview">
+                <strong>video-huong-dan-dvc.mp4</strong>
+                <ul class="list">
+                  <li>thumbnail: có</li>
+                  <li>duration: 03:21</li>
+                  <li>metadata: thiếu transcript</li>
+                </ul>
+              </article>
             </div>
-          </article>
-          <article class="card">
-            <strong>banner-tthc-q2.webp</strong>
-            <ul class="list">
-              <li>alt text: Banner cải cách TTHC</li>
-              <li>kích thước: 1600x600</li>
-              <li>dung lượng: 410KB</li>
-              <li>used_by: homepage-hero</li>
-            </ul>
-            <div class="actions">
-              <button class="btn secondary">Gắn vị trí</button>
-              <button class="btn secondary">Lịch hiển thị</button>
+          </section>
+
+          <aside id="media-preview-panel" class="card media-preview">
+            <h2>Preview panel</h2>
+            <div class="preview-box">
+              <strong data-preview-name>Chọn một media item</strong>
+              <p style="margin:0.4rem 0 0;color:#5c738d;" data-preview-meta>Metadata sẽ hiển thị tại đây.</p>
+              <p style="margin:0.35rem 0 0;" data-preview-usage>Usage sẽ hiển thị tại đây.</p>
             </div>
-          </article>
-          <article class="card">
-            <strong>video-huong-dan-dvc.mp4</strong>
-            <ul class="list">
-              <li>thumbnail: có</li>
-              <li>duration: 03:21</li>
-              <li>nguồn: internal upload</li>
-              <li>metadata: đủ</li>
-            </ul>
+            <div class="toast-row">
+              <span class="toast warn">Cảnh báo: 1 file thiếu transcript</span>
+            </div>
             <div class="actions">
               <button class="btn secondary">Chỉnh metadata</button>
               <button class="btn secondary">Sao chép link</button>
             </div>
-          </article>
+          </aside>
         </div>
-
-        <article class="card">
-          <h2>MediaPicker component preview</h2>
-          <div class="wireframe">[MediaPicker Drawer]
-- Tabs: image | video | banner
-- Filter: folder, format, size
-- Search: filename, alt text
-- Preview + metadata + used_by
-- Actions: Select, Replace, Crop, Optimize
-- Event audit: action=media_selected | media_updated</div>
-        </article>
       </section>
     </main>
   </div>

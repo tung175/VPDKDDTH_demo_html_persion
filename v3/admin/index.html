@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
@@ -44,12 +44,9 @@
     <main class="main">
       <header class="topbar">
         <div class="topbar-left">
-          <button class="btn ghost icon command-trigger" type="button" aria-label="Mở command palette">⌘K</button>
-          <div class="search-shell">
-            <input type="search" data-command-input placeholder="Tìm nhanh: bài viết, ticket, mã thủ tục, người xử lý...">
-          </div>
-          <span class="chip tone-info">Thông báo: 5</span>
-          <span class="chip tone-warning">Cần duyệt: 12</span>
+          <input type="search" placeholder="Tìm nhanh: bài viết, ticket, mã thủ tục...">
+          <span class="chip">Thông báo: 5</span>
+          <span class="chip">Cần duyệt: 12</span>
         </div>
         <div class="topbar-right">
           <label class="chip" for="role-switcher">Vai trò</label>
@@ -67,7 +64,7 @@
         <div class="page-head">
           <div>
             <h1>Dashboard tổng quan</h1>
-            <p class="sub">Theo dõi KPI nội dung, hàng đợi duyệt, cảnh báo SLA và vào từng chức năng trọng tâm trong <= 2 click.</p>
+            <p class="sub">Theo dõi KPI nội dung, hàng đợi duyệt, cảnh báo SLA và luồng công việc trong <= 2 click đến từng chức năng MVP.</p>
           </div>
           <div class="actions">
             <a class="btn primary" href="news-editor.html">Tạo bài mới</a>
@@ -76,93 +73,60 @@
         </div>
 
         <div class="grid-3">
-          <article class="card kpi" data-href="approval-queue.html">
+          <article class="card kpi">
             <h2>Bài đang chờ duyệt</h2>
             <strong>12</strong>
             <small>+3 so với hôm qua</small>
-            <div class="meter"><span style="width: 62%"></span></div>
           </article>
-          <article class="card kpi" data-href="news-list.html">
+          <article class="card kpi">
             <h2>Bài đã xuất bản tuần này</h2>
             <strong>46</strong>
-            <small>Tỷ lệ đúng lịch: 97%</small>
-            <div class="meter"><span style="width: 97%"></span></div>
+            <small>Tỷ lệ đúng lịch 97%</small>
           </article>
-          <article class="card kpi risk-high" data-href="approval-queue.html">
+          <article class="card kpi">
             <h2>Ticket quá SLA</h2>
             <strong>2</strong>
             <small>Cần xử lý trong 4 giờ</small>
-            <div class="meter"><span style="width: 38%"></span></div>
           </article>
         </div>
 
         <div class="grid-2">
           <article class="card">
-            <h2>Việc cần xử lý hôm nay</h2>
-            <ul class="priority-list">
-              <li class="priority-item">
-                <strong>[Tin tức] Kế hoạch cải cách TTHC quý II</strong>
-                <span class="priority-meta">Quá hạn 3 giờ · Owner: kduyet01</span>
-                <span class="badge breach">breach</span>
-              </li>
-              <li class="priority-item">
-                <strong>[Trang chủ] Khối thông báo khẩn trước 17:00</strong>
-                <span class="priority-meta">Due in 1h20m · Owner: bientap02</span>
-                <span class="badge warn">warning</span>
-              </li>
-              <li class="priority-item">
-                <strong>[Văn bản] Quyết định 120 cần đối soát hiệu lực</strong>
-                <span class="priority-meta">Đúng SLA · Owner: nghiepvu03</span>
-                <span class="badge ok">ok</span>
-              </li>
+            <div class="page-head">
+              <h2>Biểu đồ trạng thái nội dung</h2>
+            </div>
+            <ul class="list">
+              <li>Draft: 24 bản ghi</li>
+              <li>Review: 12 bản ghi</li>
+              <li>Approved: 9 bản ghi</li>
+              <li>Published: 214 bản ghi</li>
+              <li>Archived: 53 bản ghi</li>
             </ul>
           </article>
-
           <article class="card">
-            <h2>Hoạt động gần nhất</h2>
-            <ul class="activity-stream">
-              <li class="stream-item">
-                <strong>Nguyễn Văn A gửi duyệt bài “Kế hoạch cải cách TTHC”</strong>
-                <time>10:40 · module: news</time>
-              </li>
-              <li class="stream-item">
-                <strong>Kiểm duyệt viên duyệt block “Thông báo khẩn”</strong>
-                <time>09:55 · module: homepage</time>
-              </li>
-              <li class="stream-item">
-                <strong>Media “banner-tthc-q2.webp” được thay thế bản tối ưu</strong>
-                <time>09:28 · module: media</time>
-              </li>
-              <li class="stream-item">
-                <strong>Hệ thống autosave bài nháp thành công</strong>
-                <time>08:57 · module: editor</time>
-              </li>
+            <div class="page-head">
+              <h2>Việc cần duyệt ngay</h2>
+            </div>
+            <ul class="list">
+              <li>[Tin tức] Kế hoạch cải cách TTHC quý II - quá hạn 3h</li>
+              <li>[Trang chủ] Khối thông báo khẩn cần publish trước 17:00</li>
+              <li>[Văn bản] Quyết định số 120 cần đối soát hiệu lực</li>
             </ul>
           </article>
         </div>
 
         <article class="card">
           <div class="page-head">
-            <h2>Quick actions theo vai trò</h2>
+            <div>
+              <h2>Wireframe text tiêu chuẩn màn hình</h2>
+              <p class="sub">Áp dụng chung cho list/detail/editor trong admin.</p>
+            </div>
           </div>
-          <div class="quick-grid">
-            <a class="quick-card" href="news-list.html">
-              <strong>Review queue</strong>
-              <p>Mở danh sách bài trạng thái review và lọc theo SLA.</p>
-            </a>
-            <a class="quick-card" href="homepage-manager.html">
-              <strong>Homepage blocks</strong>
-              <p>Quản lý block ưu tiên, pin/unpin và lịch hiển thị.</p>
-            </a>
-            <a class="quick-card" href="news-editor.html">
-              <strong>Compose with checklist</strong>
-              <p>Soạn bài, kiểm metadata, autosave và gửi duyệt.</p>
-            </a>
-            <a class="quick-card" href="workflow-history.html">
-              <strong>Audit timeline</strong>
-              <p>Truy vết actor/action/time và so sánh phiên bản.</p>
-            </a>
-          </div>
+          <div class="wireframe">[Action Header]  Tiêu đề + CTA chính + CTA phụ
+[Filter/Search] Bộ lọc trạng thái, thời gian, tác giả, từ khóa
+[Data View]     Table/List/Card + cột status + quick actions
+[Drawer/Modal]  Duyệt, từ chối, pin/unpin, lịch publish
+[Footer]        Pagination + tổng bản ghi + export</div>
         </article>
 
         <article class="card">
@@ -178,14 +142,14 @@
             </div>
           </div>
 
-          <div id="state-preview" class="state-gallery">
+          <div id="state-preview">
             <div class="state-card" data-state="empty">
               <h4>Empty</h4>
               <p>Không có dữ liệu phù hợp bộ lọc hiện tại.</p>
             </div>
             <div class="state-card" data-state="loading" hidden>
               <h4>Loading</h4>
-              <p class="skeleton" style="height:42px;"></p>
+              <p>Đang tải dữ liệu, vui lòng chờ...</p>
             </div>
             <div class="state-card" data-state="error" hidden>
               <h4>Error</h4>
@@ -210,7 +174,7 @@
             <span class="toast warn">Đã gửi duyệt, chờ kiểm duyệt viên</span>
             <span class="toast error">Thiếu metadata bắt buộc</span>
           </div>
-          <p class="role-note">Demo phân quyền: Biên tập viên không có quyền publish trực tiếp ở màn hình biên tập.</p>
+          <p class="role-note">Phân quyền demo: Biên tập viên sẽ không hiển thị nút Publish trực tiếp ở các màn hình biên tập.</p>
         </article>
       </section>
     </main>

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
@@ -9,7 +9,11 @@
 <body class="role-super_admin">
   <div class="admin-layout">
     <aside class="sidebar">
-      <div class="brand"><strong>Admin Portal</strong><span>VPDKĐĐ Thanh Hóa</span></div>
+      <div class="brand">
+        <strong>Admin Portal</strong>
+        <span>VPDKĐĐ Thanh Hóa</span>
+      </div>
+
       <div class="nav-group">
         <h3>MVP nội dung</h3>
         <a class="nav-link" href="index.html"><span>Dashboard</span></a>
@@ -20,11 +24,24 @@
         <a class="nav-link" href="approval-queue.html"><span>Duyệt nội dung</span></a>
         <a class="nav-link active" href="workflow-history.html"><span>Workflow history</span></a>
       </div>
+
+      <div class="nav-group">
+        <h3>Hệ thống</h3>
+        <a class="nav-link" href="#"><span>Báo cáo</span></a>
+        <a class="nav-link" href="#"><span>Người dùng & quyền</span></a>
+        <a class="nav-link" href="#"><span>Audit log</span></a>
+        <a class="nav-link" href="#"><span>Cấu hình</span></a>
+      </div>
     </aside>
 
     <main class="main">
       <header class="topbar">
-        <div class="topbar-left"><input type="search" placeholder="Tìm theo record_id hoặc actor..."></div>
+        <div class="topbar-left">
+          <button class="btn ghost icon command-trigger" type="button" aria-label="Mở command palette">⌘K</button>
+          <div class="search-shell"><input type="search" data-command-input placeholder="Tìm theo record_id, actor, action..."></div>
+          <span class="chip tone-info">Event hôm nay: 58</span>
+          <span class="chip tone-warning">SLA breach: 2</span>
+        </div>
         <div class="topbar-right">
           <label class="chip" for="role-switcher">Vai trò</label>
           <select id="role-switcher">
@@ -33,76 +50,169 @@
             <option value="kiem_duyet_vien">Kiểm duyệt viên</option>
             <option value="chuyen_vien">Chuyên viên nghiệp vụ</option>
           </select>
+          <span class="chip">Retention: 365 ngày</span>
         </div>
       </header>
 
       <section class="page">
         <div class="page-head">
           <div>
-            <h1>Workflow history & Audit timeline</h1>
-            <p class="sub">Theo dõi trạng thái `draft | review | approved | published | archived` và event thao tác cho từng bản ghi.</p>
+            <h1>Workflow History & Audit Timeline</h1>
+            <p class="sub">Theo dõi đầy đủ actor, action, timestamp, diff summary và trạng thái SLA cho từng bản ghi xuyên suốt vòng đời nội dung.</p>
           </div>
           <div class="actions">
-            <button class="btn secondary">Filter theo module</button>
-            <button class="btn secondary">Filter theo actor</button>
+            <button class="btn secondary">Export CSV</button>
+            <button class="btn secondary">Lọc nâng cao</button>
           </div>
         </div>
+
+        <article class="card">
+          <div class="filter-bar">
+            <input type="search" name="keyword" placeholder="record_id, tiêu đề, actor">
+            <select name="module"><option>Module: tất cả</option><option>news</option><option>homepage</option><option>media</option></select>
+            <select name="action"><option>Action: tất cả</option><option>submit_for_review</option><option>approve_content</option><option>publish_content</option></select>
+            <button class="btn secondary">Lọc</button>
+          </div>
+          <div class="view-strip">
+            <div class="saved-views">
+              <button class="pill active" type="button">Sự kiện hôm nay</button>
+              <button class="pill" type="button">Breach gần nhất</button>
+              <button class="pill" type="button">Theo actor</button>
+            </div>
+            <div class="density-switch">
+              <button class="pill" type="button" data-density-target="#audit-table-wrap">Toggle density</button>
+            </div>
+          </div>
+        </article>
 
         <div class="grid-2">
           <article class="card">
             <h2>Timeline bản ghi: tin-2026-120</h2>
             <ul class="timeline">
-              <li><strong>Draft</strong> - 09/03/2026 08:20 - Nguyễn Văn A tạo bản nháp</li>
-              <li><strong>Review</strong> - 09/03/2026 10:40 - Gửi duyệt</li>
-              <li><strong>Approved</strong> - 09/03/2026 11:15 - Kiểm duyệt viên chấp thuận</li>
-              <li><strong>Published</strong> - 09/03/2026 11:20 - Hệ thống xuất bản</li>
+              <li>
+                <strong>Draft · 09/03/2026 08:20</strong>
+                <div class="priority-meta">Nguyễn Văn A tạo bản nháp và lưu metadata.</div>
+                <div class="diff-box">title: "Kế hoạch cải cách hành chính quý II"
+owner: nguyenvana</div>
+              </li>
+              <li>
+                <strong>Review · 09/03/2026 10:40</strong>
+                <div class="priority-meta">Gửi duyệt với ghi chú cập nhật số liệu quý I.</div>
+                <div class="diff-box">action: submit_for_review
+note: "Đã chuẩn hóa nội dung theo mẫu 2026"</div>
+              </li>
+              <li>
+                <strong>Approved · 09/03/2026 11:15</strong>
+                <div class="priority-meta">Kiểm duyệt viên chấp thuận và pin homepage.</div>
+                <div class="diff-box">approval_result: approved
+homepage_pin: true</div>
+              </li>
+              <li>
+                <strong>Published · 09/03/2026 11:20</strong>
+                <div class="priority-meta">Hệ thống xuất bản và ghi event audit chuẩn.</div>
+                <div class="diff-box">status: published
+published_at: 2026-03-09T11:20:00+07:00</div>
+              </li>
             </ul>
           </article>
 
           <article class="card">
-            <h2>Audit event chuẩn</h2>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>action</th>
-                    <th>module</th>
-                    <th>record_id</th>
-                    <th>actor</th>
-                    <th>timestamp</th>
-                    <th>note</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>submit_for_review</td>
-                    <td>news</td>
-                    <td>tin-2026-120</td>
-                    <td>nguyenvana</td>
-                    <td>2026-03-09 10:40</td>
-                    <td>Gửi duyệt bài sau chỉnh sửa</td>
-                  </tr>
-                  <tr>
-                    <td>approve_content</td>
-                    <td>news</td>
-                    <td>tin-2026-120</td>
-                    <td>kiemduyet01</td>
-                    <td>2026-03-09 11:15</td>
-                    <td>Đạt tiêu chuẩn nội dung</td>
-                  </tr>
-                </tbody>
-              </table>
+            <h2>Tổng hợp theo SLA và vai trò</h2>
+            <ul class="priority-list">
+              <li class="priority-item">
+                <strong>Kiểm duyệt viên: 2 bản ghi sắp breach</strong>
+                <span class="priority-meta">due in 2h10m · queue: approval</span>
+                <span class="badge warn">warning</span>
+              </li>
+              <li class="priority-item">
+                <strong>Biên tập viên: 6 bản nháp chưa submit</strong>
+                <span class="priority-meta">owner: bientap-team</span>
+                <span class="badge ok">ok</span>
+              </li>
+              <li class="priority-item">
+                <strong>Chuyên viên nghiệp vụ: 1 record đã breach</strong>
+                <span class="priority-meta">module: văn bản · overdue 45m</span>
+                <span class="badge breach">breach</span>
+              </li>
+            </ul>
+
+            <div class="panel" style="margin-top:.7rem;">
+              <strong>Diff summary gần nhất</strong>
+              <div class="diff-box">record_id: home-hero-2026-03
+before: banner="hero_q1.webp"
+after : banner="hero_q2.webp"
+actor : kduyet01
+reason: "đổi chiến dịch quý II"</div>
             </div>
           </article>
         </div>
 
         <article class="card">
-          <h2>Acceptance checks (màn hình này)</h2>
-          <ul class="list">
-            <li>Hiển thị đầy đủ chuỗi trạng thái workflow, không nhảy trạng thái trái quy tắc.</li>
-            <li>Mỗi thao tác duyệt/từ chối/publish phải có event trong audit.</li>
-            <li>Truy vết được theo actor, module, record_id, timestamp.</li>
-          </ul>
+          <div class="bulk-bar">
+            <strong>Đã chọn: <span id="audit-selected-count">0</span> event</strong>
+            <div class="actions">
+              <button class="btn secondary" data-bulk-action="export_events">Bulk: Export</button>
+              <button class="btn secondary" data-bulk-action="tag_events">Bulk: Gán tag</button>
+              <button class="btn danger role-gated" data-roles="super_admin" data-bulk-action="archive_events">Bulk: Archive</button>
+            </div>
+          </div>
+
+          <div class="table-wrap" id="audit-table-wrap" data-density="normal" style="margin-top:.6rem;">
+            <table data-selectable data-counter-target="#audit-selected-count">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" aria-label="Chọn tất cả"></th>
+                  <th>Timestamp</th>
+                  <th>Actor</th>
+                  <th>Module</th>
+                  <th>record_id</th>
+                  <th>Action</th>
+                  <th>Status</th>
+                  <th>SLA</th>
+                  <th>Diff summary</th>
+                  <th>Tác vụ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" aria-label="row"></td>
+                  <td>10/03/2026 10:12</td>
+                  <td>bientap02</td>
+                  <td>homepage</td>
+                  <td>home-hero-2026-03</td>
+                  <td>assign_item_to_block</td>
+                  <td><span class="status approved">approved</span></td>
+                  <td><span class="badge ok">ok</span></td>
+                  <td>item_ids thay đổi từ 2 lên 3</td>
+                  <td><button class="btn secondary">Xem chi tiết</button></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" aria-label="row"></td>
+                  <td>10/03/2026 09:55</td>
+                  <td>kiemduyet01</td>
+                  <td>news</td>
+                  <td>tin-2026-121</td>
+                  <td>approve_content</td>
+                  <td><span class="status approved">approved</span></td>
+                  <td><span class="badge warn">warning</span></td>
+                  <td>thêm checklist pháp lý trước publish</td>
+                  <td><button class="btn secondary">Xem chi tiết</button></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" aria-label="row"></td>
+                  <td>10/03/2026 08:40</td>
+                  <td>system</td>
+                  <td>news</td>
+                  <td>tin-2026-118</td>
+                  <td>publish_content</td>
+                  <td><span class="status published">published</span></td>
+                  <td><span class="badge breach">breach</span></td>
+                  <td>publish chậm 36 phút so với lịch</td>
+                  <td><button class="btn secondary">Xem chi tiết</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </article>
       </section>
     </main>

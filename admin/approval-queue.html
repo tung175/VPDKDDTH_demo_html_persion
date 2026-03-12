@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
@@ -24,7 +24,11 @@
 
     <main class="main">
       <header class="topbar">
-        <div class="topbar-left"><input type="search" placeholder="Tìm item cần duyệt..."></div>
+        <div class="topbar-left">
+          <button class="btn ghost icon command-trigger" type="button" aria-label="Mở command palette">⌘K</button>
+          <div class="search-shell"><input type="search" data-command-input placeholder="Tìm item cần duyệt, record_id, actor..."></div>
+          <span class="chip tone-warning">SLA cảnh báo: 4</span>
+        </div>
         <div class="topbar-right">
           <label class="chip" for="role-switcher">Vai trò</label>
           <select id="role-switcher">
@@ -40,78 +44,71 @@
         <div class="page-head">
           <div>
             <h1>Hàng đợi duyệt nội dung</h1>
-            <p class="sub">So sánh phiên bản, phê duyệt/từ chối, ghi chú lý do và tạo audit trail.</p>
+            <p class="sub">So sánh phiên bản, phê duyệt/từ chối trong side drawer và lưu audit event theo chuẩn workflow.</p>
           </div>
         </div>
 
-        <article class="card table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Loại nội dung</th>
-                <th>Tiêu đề</th>
-                <th>Người gửi duyệt</th>
-                <th>Thời điểm</th>
-                <th>SLA còn lại</th>
-                <th>Trạng thái</th>
-                <th>Tác vụ</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tin tức</td>
-                <td>Kế hoạch cải cách hành chính quý II</td>
-                <td>Nguyễn Văn A</td>
-                <td>09/03/2026 10:40</td>
-                <td>03h20m</td>
-                <td><span class="status review">review</span></td>
-                <td>
-                  <div class="actions">
-                    <button class="btn secondary">Compare version</button>
-                    <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Approve</button>
-                    <button class="btn warn role-gated" data-roles="super_admin kiem_duyet_vien">Reject</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Trang chủ</td>
-                <td>Khối thông báo khẩn tháng 3</td>
-                <td>Trần Thị B</td>
-                <td>09/03/2026 09:00</td>
-                <td>01h10m</td>
-                <td><span class="status review">review</span></td>
-                <td>
-                  <div class="actions">
-                    <button class="btn secondary">Xem preview</button>
-                    <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Approve</button>
-                    <button class="btn warn role-gated" data-roles="super_admin kiem_duyet_vien">Reject</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <article class="card">
+          <div class="filter-bar">
+            <input type="search" name="keyword" placeholder="Từ khóa">
+            <select name="module"><option>Module: tất cả</option><option>Tin tức</option><option>Trang chủ</option><option>Văn bản</option></select>
+            <select name="sla"><option>SLA: tất cả</option><option>warning</option><option>breach</option></select>
+            <button class="btn secondary">Lọc</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Loại nội dung</th>
+                  <th>Tiêu đề</th>
+                  <th>Người gửi duyệt</th>
+                  <th>Thời điểm</th>
+                  <th>SLA còn lại</th>
+                  <th>Trạng thái</th>
+                  <th>Tác vụ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tin tức</td>
+                  <td>Kế hoạch cải cách hành chính quý II</td>
+                  <td>Nguyễn Văn A</td>
+                  <td>09/03/2026 10:40</td>
+                  <td><span class="badge breach">03h20m</span></td>
+                  <td><span class="status review">review</span></td>
+                  <td>
+                    <div class="actions">
+                      <button class="btn secondary" data-open-approval data-item-title="Kế hoạch cải cách hành chính quý II">Duyệt tại chỗ</button>
+                      <button class="btn secondary">Compare</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Trang chủ</td>
+                  <td>Khối thông báo khẩn tháng 3</td>
+                  <td>Trần Thị B</td>
+                  <td>09/03/2026 09:00</td>
+                  <td><span class="badge warn">01h10m</span></td>
+                  <td><span class="status review">review</span></td>
+                  <td>
+                    <div class="actions">
+                      <button class="btn secondary" data-open-approval data-item-title="Khối thông báo khẩn tháng 3">Duyệt tại chỗ</button>
+                      <button class="btn secondary">Preview</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </article>
 
         <div class="grid-2">
           <article class="card">
-            <h2>ApprovalPanel mẫu</h2>
-            <div class="form-grid">
-              <label>Kết quả duyệt
-                <select><option>Approve</option><option>Reject</option></select>
-              </label>
-              <label>Ghi chú bắt buộc nếu Reject
-                <textarea rows="3">Thiếu số hiệu văn bản trong phần trích dẫn.</textarea>
-              </label>
-            </div>
-            <div class="actions" style="margin-top:0.65rem;">
-              <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Xác nhận duyệt</button>
-              <button class="btn secondary">Hủy</button>
-            </div>
-          </article>
-
-          <article class="card">
             <h2>Compare version mẫu</h2>
-            <div class="wireframe">[Version N-1]
+            <div class="diff-box">[Version N-1]
 - tiêu đề cũ
 - summary cũ
 - chưa có nguồn văn bản
@@ -121,10 +118,56 @@
 + bổ sung số hiệu văn bản 120/QĐ
 + thêm metadata SEO</div>
           </article>
+          <article class="card">
+            <h2>SLA breakdown</h2>
+            <ul class="list">
+              <li><span class="badge breach">breach</span> 2 items</li>
+              <li><span class="badge warn">warning</span> 4 items</li>
+              <li><span class="badge ok">ok</span> 11 items</li>
+            </ul>
+          </article>
         </div>
       </section>
     </main>
   </div>
+
+  <div id="approval-drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <aside class="drawer-panel" role="dialog" aria-label="Approval panel">
+      <div class="drawer-head">
+        <div class="page-head" style="margin:0;padding:0;">
+          <h2 data-approval-title>Nội dung cần duyệt</h2>
+          <button class="btn ghost" type="button" data-close-drawer>Đóng</button>
+        </div>
+      </div>
+      <div class="drawer-body">
+        <form>
+          <div class="form-grid">
+            <label>Kết quả duyệt
+              <select name="approval_action">
+                <option value="approve">Approve</option>
+                <option value="reject">Reject</option>
+                <option value="schedule">Schedule</option>
+              </select>
+            </label>
+            <label>Ghi chú nghiệp vụ
+              <textarea rows="4" placeholder="Mô tả lý do duyệt/từ chối"></textarea>
+            </label>
+            <label>Lịch publish (nếu schedule)
+              <input type="datetime-local" value="2026-03-12T09:00">
+            </label>
+          </div>
+          <div class="drawer-foot">
+            <div class="actions">
+              <button class="btn primary" type="submit">Xác nhận</button>
+              <button class="btn secondary" type="button" data-close-drawer>Hủy</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </aside>
+  </div>
+
   <script src="assets/js/admin.js" defer></script>
 </body>
 </html>

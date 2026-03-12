@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
@@ -24,11 +24,7 @@
 
     <main class="main">
       <header class="topbar">
-        <div class="topbar-left">
-          <button class="btn ghost icon command-trigger" type="button" aria-label="Mở command palette">⌘K</button>
-          <div class="search-shell"><input type="search" data-command-input placeholder="Tìm media hoặc bài liên quan..."></div>
-          <span class="chip tone-info">Autosave: On</span>
-        </div>
+        <div class="topbar-left"><input type="search" placeholder="Tìm media hoặc bài liên quan..."></div>
         <div class="topbar-right">
           <label class="chip" for="role-switcher">Vai trò</label>
           <select id="role-switcher">
@@ -44,28 +40,27 @@
         <div class="page-head">
           <div>
             <h1>Soạn thảo / Chỉnh sửa bài</h1>
-            <p class="sub">Editor + metadata + media picker + lịch publish + checklist tiền xuất bản.</p>
+            <p class="sub">Editor + metadata + media picker + lịch publish + kiểm tra SEO.</p>
           </div>
           <div class="actions">
-            <span id="autosave-status" class="autosave-pill">Đã đồng bộ bản nháp</span>
             <button class="btn secondary">Lưu nháp</button>
             <button class="btn secondary">Gửi duyệt</button>
             <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Publish ngay</button>
           </div>
         </div>
 
-        <div class="editor-grid" data-editor-form>
+        <div class="editor-grid">
           <article class="card editor-main">
             <div class="form-grid">
               <label>Tiêu đề
-                <input name="title" data-editor-field type="text" value="Kế hoạch cải cách hành chính quý II năm 2026">
+                <input type="text" value="Kế hoạch cải cách hành chính quý II năm 2026">
               </label>
               <label>Tóm tắt
-                <textarea name="summary" data-editor-field rows="3">Văn phòng triển khai kế hoạch cải cách hành chính tập trung giảm thời gian xử lý hồ sơ.</textarea>
+                <textarea rows="3">Văn phòng triển khai kế hoạch cải cách hành chính tập trung giảm thời gian xử lý hồ sơ.</textarea>
               </label>
             </div>
             <label style="display:grid;gap:0.35rem;margin-top:0.65rem;">Nội dung
-              <textarea name="content" data-editor-field>## Nội dung bài viết
+              <textarea>## Nội dung bài viết
 
 Đây là vùng editor mô phỏng.
 - Chèn ảnh
@@ -75,42 +70,51 @@
             </label>
           </article>
 
-          <article class="card meta-panel">
+          <article class="card">
             <div class="form-grid">
               <label>Chuyên mục
-                <select data-editor-field><option>Tin tức/Sự kiện</option><option>Thông báo</option></select>
+                <select><option>Tin tức/Sự kiện</option><option>Thông báo</option></select>
               </label>
               <label>Slug
-                <input data-editor-field type="text" value="ke-hoach-cai-cach-hanh-chinh-quy-2-2026">
+                <input type="text" value="ke-hoach-cai-cach-hanh-chinh-quy-2-2026">
               </label>
               <label>Trạng thái
-                <select data-editor-field><option>draft</option><option>review</option><option>approved</option></select>
+                <select><option>draft</option><option>review</option><option>approved</option></select>
+              </label>
+              <label>Featured
+                <select><option>false</option><option>true</option></select>
               </label>
               <label>Lịch xuất bản
-                <input data-editor-field type="datetime-local" value="2026-03-10T09:00">
+                <input type="datetime-local" value="2026-03-10T09:00">
               </label>
             </div>
 
-            <div class="panel">
-              <strong>Checklist tiền xuất bản</strong>
-              <ul class="checklist" style="margin-top:0.45rem;">
-                <li><input type="checkbox" checked> Tiêu đề rõ nghĩa</li>
-                <li><input type="checkbox" checked> Có ảnh thumbnail + alt text</li>
-                <li><input type="checkbox"> Có meta description</li>
-                <li><input type="checkbox" checked> Nguồn dữ liệu đã xác thực</li>
+            <div class="panel" style="margin-top:0.7rem;">
+              <strong>Media picker</strong>
+              <ul class="list">
+                <li>thumbnail: /media/tin-2026-03-09.jpg</li>
+                <li>alt: Lãnh đạo phát biểu tại hội nghị</li>
+                <li>size: 320KB (WebP)</li>
               </ul>
+              <button class="btn secondary">Chọn từ thư viện media</button>
             </div>
 
-            <div class="panel">
-              <strong>Preview nhanh</strong>
-              <p style="margin:0.42rem 0 0;" data-preview-title>Kế hoạch cải cách hành chính quý II năm 2026</p>
-              <p style="margin:0.3rem 0 0;color:#5b738d;" data-preview-summary>Văn phòng triển khai kế hoạch cải cách hành chính tập trung giảm thời gian xử lý hồ sơ.</p>
+            <div class="panel" style="margin-top:0.7rem;">
+              <strong>SEO check</strong>
+              <ul class="list">
+                <li>SEO title: đạt (57 ký tự)</li>
+                <li>Meta description: thiếu</li>
+                <li>Ảnh OG: đạt</li>
+              </ul>
+              <div class="toast-row">
+                <span class="toast warn">Thiếu meta description</span>
+              </div>
             </div>
           </article>
         </div>
 
         <article class="card">
-          <h2>Validation messages</h2>
+          <h2>Inline validation mẫu</h2>
           <div class="toast-row">
             <span class="toast success">Đã lưu bản nháp lúc 15:24</span>
             <span class="toast warn">Slug đã tồn tại, hệ thống đề xuất thêm hậu tố</span>

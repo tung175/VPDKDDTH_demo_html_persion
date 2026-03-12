@@ -1,15 +1,19 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Portal - Quản lý trang chủ</title>
+  <title>Admin Portal - Quản lý Trang chủ</title>
   <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body class="role-super_admin">
   <div class="admin-layout">
     <aside class="sidebar">
-      <div class="brand"><strong>Admin Portal</strong><span>VPDKĐĐ Thanh Hóa</span></div>
+      <div class="brand">
+        <strong>Admin Portal</strong>
+        <span>VPDKĐĐ Thanh Hóa</span>
+      </div>
+
       <div class="nav-group">
         <h3>MVP nội dung</h3>
         <a class="nav-link" href="index.html"><span>Dashboard</span></a>
@@ -20,11 +24,31 @@
         <a class="nav-link" href="approval-queue.html"><span>Duyệt nội dung</span></a>
         <a class="nav-link" href="workflow-history.html"><span>Workflow history</span></a>
       </div>
+
+      <div class="nav-group">
+        <h3>Phase sau</h3>
+        <a class="nav-link disabled" href="#"><span>TTHC</span><small>Sau</small></a>
+        <a class="nav-link disabled" href="#"><span>Hỏi đáp</span><small>Sau</small></a>
+        <a class="nav-link disabled" href="#"><span>Liên hệ/Ticket</span><small>Sau</small></a>
+      </div>
+
+      <div class="nav-group">
+        <h3>Hệ thống</h3>
+        <a class="nav-link" href="#"><span>Báo cáo</span></a>
+        <a class="nav-link" href="#"><span>Người dùng & quyền</span></a>
+        <a class="nav-link" href="#"><span>Audit log</span></a>
+        <a class="nav-link" href="#"><span>Cấu hình</span></a>
+      </div>
     </aside>
 
     <main class="main">
       <header class="topbar">
-        <div class="topbar-left"><input type="search" placeholder="Tìm block hoặc bài được gắn..."></div>
+        <div class="topbar-left">
+          <button class="btn ghost icon command-trigger" type="button" aria-label="Mở command palette">⌘K</button>
+          <div class="search-shell"><input type="search" data-command-input placeholder="Tìm block, mã bài, lịch hiển thị..."></div>
+          <span class="chip tone-info">Block active: 9</span>
+          <span class="chip tone-warning">Schedule: 3</span>
+        </div>
         <div class="topbar-right">
           <label class="chip" for="role-switcher">Vai trò</label>
           <select id="role-switcher">
@@ -33,14 +57,15 @@
             <option value="kiem_duyet_vien">Kiểm duyệt viên</option>
             <option value="chuyen_vien">Chuyên viên nghiệp vụ</option>
           </select>
+          <span class="chip">TK: admin.vpdkdd</span>
         </div>
       </header>
 
       <section class="page">
         <div class="page-head">
           <div>
-            <h1>Quản lý trang chủ</h1>
-            <p class="sub">Kéo thả thứ tự block, gán bài vào block, pin/unpin và hẹn lịch hiển thị theo desktop/mobile.</p>
+            <h1>Quản lý Trang chủ</h1>
+            <p class="sub">Điều phối block theo ưu tiên hiển thị, gắn nội dung theo ngữ cảnh và kiểm soát lịch publish đa thiết bị.</p>
           </div>
           <div class="actions">
             <button class="btn secondary">Preview Desktop</button>
@@ -49,94 +74,190 @@
           </div>
         </div>
 
+        <div class="grid-3">
+          <article class="card kpi" data-href="homepage-manager.html">
+            <h2>Block cần cập nhật</h2>
+            <strong>4</strong>
+            <small>2 block thiếu metadata ảnh</small>
+            <div class="meter"><span style="width: 46%"></span></div>
+          </article>
+          <article class="card kpi" data-href="news-list.html">
+            <h2>Bài chờ gắn block</h2>
+            <strong>11</strong>
+            <small>3 bài SLA warning</small>
+            <div class="meter"><span style="width: 68%"></span></div>
+          </article>
+          <article class="card kpi risk-high" data-href="approval-queue.html">
+            <h2>Yêu cầu duyệt block</h2>
+            <strong>2</strong>
+            <small>1 yêu cầu quá hạn 55 phút</small>
+            <div class="meter"><span style="width: 34%"></span></div>
+          </article>
+        </div>
+
         <article class="card">
-          <div class="page-head">
-            <h2>Block layout (drag-sort)</h2>
-            <button class="btn secondary">Tạo block mới</button>
+          <div class="filter-bar">
+            <input type="search" name="keyword" placeholder="Từ khóa block hoặc item_id">
+            <select name="zone"><option>Khu vực: tất cả</option><option>Hero</option><option>Tin mới</option><option>Thông báo</option></select>
+            <select name="visibility"><option>Hiển thị: tất cả</option><option>published</option><option>scheduled</option><option>draft</option></select>
+            <button class="btn secondary">Lọc</button>
           </div>
-          <div class="grid-2">
+          <div class="view-strip">
+            <div class="saved-views">
+              <button class="pill active" type="button">Ưu tiên hôm nay</button>
+              <button class="pill" type="button">Block quá SLA</button>
+              <button class="pill" type="button">Đang schedule</button>
+            </div>
+            <div class="actions">
+              <button class="btn secondary">Tạo block mới</button>
+              <button class="btn secondary">Lưu thành view</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="grid-2">
+          <article class="card">
+            <h2>Layout block theo thứ tự hiển thị</h2>
             <div class="panel">
-              <strong>#1 Hero tra cứu nhanh</strong>
+              <strong>#1 Hero Tra cứu nhanh</strong>
               <ul class="list">
                 <li>block_id: hero_search</li>
-                <li>block_type: hero</li>
-                <li>item_ids: [tin-120, thongbao-18]</li>
+                <li>items: [tin-2026-120, thongbao-2026-18]</li>
                 <li>visibility: published</li>
-                <li>schedule: now</li>
+                <li>updated_by: bientap02 · 10/03/2026 09:20</li>
               </ul>
               <div class="actions">
                 <button class="btn secondary">Kéo lên/xuống</button>
+                <button class="btn secondary">Gắn bài</button>
                 <button class="btn warn">Pin</button>
-                <button class="btn secondary">Gán bài</button>
               </div>
             </div>
-            <div class="panel">
+            <div class="panel" style="margin-top:.6rem;">
               <strong>#2 Tin mới quan trọng</strong>
               <ul class="list">
                 <li>block_id: latest_news</li>
-                <li>block_type: list</li>
-                <li>item_ids: [tin-118, tin-117, tin-116]</li>
-                <li>visibility: scheduled</li>
-                <li>schedule: 10/03/2026 09:00</li>
+                <li>items: [tin-2026-118, tin-2026-117, tin-2026-116]</li>
+                <li>visibility: scheduled · 10/03/2026 13:00</li>
+                <li>updated_by: nghiepvu03 · 10/03/2026 08:55</li>
               </ul>
               <div class="actions">
                 <button class="btn secondary">Kéo lên/xuống</button>
-                <button class="btn warn">Unpin</button>
                 <button class="btn secondary">Lịch publish</button>
+                <button class="btn secondary">Unpin</button>
               </div>
             </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="page-head">
-            <h2>Danh sách bài có thể gán vào block</h2>
-            <div class="actions">
-              <button class="btn secondary">Filter theo trạng thái</button>
-              <button class="btn secondary">Filter theo chuyên mục</button>
+            <div class="panel" style="margin-top:.6rem;">
+              <strong>#3 Banner tiện ích</strong>
+              <ul class="list">
+                <li>block_id: utility_banner</li>
+                <li>items: [vbpl.jpg, lich.jpg, tthc1.jpg]</li>
+                <li>visibility: published</li>
+                <li>updated_by: kduyet01 · 09/03/2026 17:40</li>
+              </ul>
+              <div class="actions">
+                <button class="btn secondary">Thay thứ tự</button>
+                <button class="btn secondary">Xem preview</button>
+                <button class="btn primary role-gated" data-roles="super_admin kiem_duyet_vien">Gửi duyệt</button>
+              </div>
             </div>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Tiêu đề</th>
-                  <th>Chuyên mục</th>
-                  <th>Trạng thái</th>
-                  <th>Featured</th>
-                  <th>Tác vụ</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Thông điệp điều hành năm 2026</td>
-                  <td>Tin tức</td>
-                  <td><span class="status published">published</span></td>
-                  <td>Có</td>
-                  <td><button class="btn secondary">Gán block</button></td>
-                </tr>
-                <tr>
-                  <td>Cảnh báo bảo trì hệ thống</td>
-                  <td>Thông báo</td>
-                  <td><span class="status scheduled">scheduled</span></td>
-                  <td>Không</td>
-                  <td><button class="btn secondary">Gán block</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
+          </article>
 
-        <article class="card">
-          <h2>Drawer/Modal thao tác mẫu</h2>
-          <div class="wireframe">[Modal: Gán bài vào block]
-- Chọn block mục tiêu
-- Tìm bài theo từ khóa
-- Xem preview thumbnail
-- Chọn visibility: published/scheduled
-- Chọn thời gian hiển thị
-- Lưu + tạo event audit (action=assign_item_to_block)</div>
-        </article>
+          <article class="card">
+            <h2>Queue bài có thể gắn vào block</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Tiêu đề</th>
+                    <th>Trạng thái</th>
+                    <th>SLA</th>
+                    <th>Tác vụ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>tin-2026-120</td>
+                    <td>Kế hoạch cải cách hành chính quý II</td>
+                    <td><span class="status approved">approved</span></td>
+                    <td><span class="badge warn">warning</span></td>
+                    <td>
+                      <div class="actions">
+                        <a class="btn secondary" href="news-editor.html">Xem</a>
+                        <button class="btn secondary">Gắn vào Hero</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>tb-2026-018</td>
+                    <td>Thông báo lịch tiếp nhận hồ sơ tuần 11</td>
+                    <td><span class="status published">published</span></td>
+                    <td><span class="badge ok">ok</span></td>
+                    <td>
+                      <div class="actions">
+                        <button class="btn secondary">Gắn vào Thông báo</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>vb-2026-032</td>
+                    <td>Hướng dẫn quy trình nộp hồ sơ trực tuyến</td>
+                    <td><span class="status review">review</span></td>
+                    <td><span class="badge breach">breach</span></td>
+                    <td>
+                      <div class="actions">
+                        <button class="btn secondary">Mở hàng duyệt</button>
+                        <a class="btn primary" href="approval-queue.html">Đi duyệt</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h2>Lịch publish block</h2>
+            <ul class="timeline">
+              <li>
+                <strong>10/03/2026 13:00 · latest_news</strong>
+                <div class="priority-meta">Tự động đổi item đầu trang theo lịch chiến dịch quý II.</div>
+                <div class="diff-box">before: [tin-2026-113, tin-2026-112]
+after : [tin-2026-118, tin-2026-117]</div>
+              </li>
+              <li>
+                <strong>11/03/2026 08:00 · hero_search</strong>
+                <div class="priority-meta">Đẩy thông báo tiếp dân lên vị trí #1 đến 17:00 cùng ngày.</div>
+                <div class="diff-box">mode: priority_override
+expires_at: 11/03/2026 17:00</div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Hoạt động gần nhất</h2>
+            <ul class="activity-stream">
+              <li class="stream-item">
+                <strong>bientap02 gắn “tin-2026-120” vào block Hero</strong>
+                <time>10:12 · action: assign_item_to_block</time>
+              </li>
+              <li class="stream-item">
+                <strong>kduyet01 duyệt thay đổi thứ tự block utility banner</strong>
+                <time>09:48 · action: approve_layout_change</time>
+              </li>
+              <li class="stream-item">
+                <strong>nghiepvu03 cập nhật lịch publish block latest_news</strong>
+                <time>09:03 · action: schedule_block</time>
+              </li>
+              <li class="stream-item">
+                <strong>Hệ thống cảnh báo block “Thông báo” thiếu ảnh alt-text</strong>
+                <time>08:37 · action: metadata_warning</time>
+              </li>
+            </ul>
+          </article>
+        </div>
       </section>
     </main>
   </div>
