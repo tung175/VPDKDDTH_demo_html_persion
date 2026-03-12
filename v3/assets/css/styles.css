@@ -14,8 +14,8 @@
   --focus: #0a67be;
   --shadow-sm: 0 4px 12px rgb(20 34 53 / 8%);
   --shadow-md: 0 10px 26px rgb(20 34 53 / 12%);
-  --radius-sm: 8px;
-  --radius-md: 12px;
+  --radius-sm: 0;
+  --radius-md: 0;
   --container: 1260px;
   --space-1: 0.5rem;
   --space-2: 0.75rem;
@@ -447,6 +447,24 @@ textarea {
   aspect-ratio: 16 / 10;
 }
 
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .play-btn {
   position: absolute;
   top: 35%;
@@ -463,6 +481,75 @@ textarea {
 
 .video-card h3 {
   margin-top: 0.7rem;
+}
+
+.public-video-rail .section-head {
+  margin-bottom: 0.72rem;
+}
+
+.public-video-rail .section-head h2 {
+  margin: 0;
+}
+
+.public-result-home-scroll {
+  max-height: 340px;
+  overflow-y: auto;
+  border: 0;
+  background: #fff;
+}
+
+.public-result-home-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.public-result-home-list li {
+  border-bottom: 1px solid #d8e0eb;
+}
+
+.public-result-home-list li:last-child {
+  border-bottom: 0;
+}
+
+.public-result-home-list a {
+  display: block;
+  padding: 0.72rem 0.74rem;
+  color: #17283c;
+  line-height: 1.46;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.public-result-home-list a:hover,
+.public-result-home-list a:focus-visible {
+  color: #0b4f90;
+  background: #f5f9ff;
+}
+
+.home-modern .split-grid .notice-item {
+  border: 0;
+  border-bottom: 1px solid #d8e0eb;
+  background: transparent;
+  padding: 0.82rem 0;
+}
+
+.home-modern .split-grid .home-block .stack {
+  gap: 0;
+}
+
+.home-modern .split-grid .notice-home-scroll {
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.home-modern .split-grid .notice-item:first-child {
+  padding-top: 0;
+}
+
+.home-modern .split-grid .notice-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .module-card {
@@ -1859,6 +1946,14 @@ th {
   .process-stepper li::after {
     display: none;
   }
+
+  .public-result-home-scroll {
+    max-height: 270px;
+  }
+
+  .home-modern .split-grid .notice-home-scroll {
+    max-height: 260px;
+  }
 }
 
 @media (max-width: 768px) and (min-width: 641px) {
@@ -1929,4 +2024,11 @@ th {
   .process-stepper li:nth-child(2n)::after {
     display: none;
   }
+}
+
+/* Force sharp-corner visual across all public UI elements in v3 */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
 }
